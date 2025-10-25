@@ -1,5 +1,4 @@
 import Image, { type ImageProps } from "next/image";
-import { Button } from "@repo/ui/button";
 import styles from "./page.module.css";
 import Button2 from "@repo/ui/Button2";
 
@@ -8,20 +7,10 @@ type Props = Omit<ImageProps, "src"> & {
   srcDark: string;
 };
 
-const ThemeImage = (props: Props) => {
-  const { srcLight, srcDark, ...rest } = props;
-
-  return (
-    <>
-      <Image {...rest} src={srcLight} className="imgLight" />
-      <Image {...rest} src={srcDark} className="imgDark" />
-    </>
-  );
-};
-
 export default function Home() {
   return (
     <div className={styles.page}>
+      resume
       <Button2 />
       {/* <main className={styles.main}>
         <ThemeImage
