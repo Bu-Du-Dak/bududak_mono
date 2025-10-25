@@ -5,7 +5,6 @@
   "exports": {
     "./*": "./src/*.tsx"
   },
-  "types": "./src/index.ts",
   "scripts": {
     "lint": "eslint . --max-warnings 0",
     "generate:component": "turbo gen react-component",
@@ -15,5 +14,10 @@
     "react": ">=18",
     "react-dom": ">=18",
     "styled-components": ">=6"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2"
   }
 }
