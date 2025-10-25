@@ -2,8 +2,12 @@
   "name": "bududak_mono",
   "private": true,
   "scripts": {
-    "build": "turbo run build",
     "dev": "turbo run dev",
+    "dev:blog": "turbo run dev --filter=blog",
+    "dev:resume": "turbo run dev --filter=resume",
+    "build": "turbo run build",
+    "build:blog": "turbo run build --filter=blog",
+    "build:resume": "turbo run build --filter=resume",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types",
@@ -15,7 +19,9 @@
     "@types/styled-components": "^5.1.35",
     "prettier": "^3.6.2",
     "turbo": "^2.5.8",
-    "typescript": "5.9.2"
+    "typescript": "5.9.2",
+    "@inquirer/prompts": "^7.9.0",
+    "dotenv": "^17.2.3"
   },
   "packageManager": "pnpm@9.0.0",
   "engines": {
