@@ -21,7 +21,8 @@ const ThemeImage = (props: Props) => {
 export default function Home() {
   return (
     <div className={styles.page}>
-      <main className={styles.main}>
+      <Button>asdsad</Button>
+      {/* <main className={styles.main}>
         <ThemeImage
           className={styles.logo}
           srcLight="turborepo-dark.svg"
@@ -96,7 +97,7 @@ export default function Home() {
           />
           Go to turborepo.com →
         </a>
-      </footer>
+      </footer> */}
     </div>
   );
 }
