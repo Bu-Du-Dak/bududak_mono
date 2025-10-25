@@ -2,8 +2,12 @@
   "name": "bududak_mono",
   "private": true,
   "scripts": {
-    "build": "turbo run build",
     "dev": "turbo run dev",
+    "dev:blog": "turbo run dev --filter=blog",
+    "dev:resume": "turbo run dev --filter=resume",
+    "build": "turbo run build",
+    "build:blog": "turbo run build --filter=blog",
+    "build:resume": "turbo run build --filter=resume",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types",
