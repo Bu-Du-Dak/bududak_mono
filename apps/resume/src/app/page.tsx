@@ -1,6 +1,7 @@
 import Image, { type ImageProps } from "next/image";
 import styles from "./page.module.css";
 import Button2 from "@repo/ui/Button2";
+import ThemeToggle from "@repo/ui/themes/themeToggle";
 
 type Props = Omit<ImageProps, "src"> & {
   srcLight: string;
@@ -9,8 +10,10 @@ type Props = Omit<ImageProps, "src"> & {
 
 export default function Home() {
   return (
-    <div className={styles.page}>
+    // <div className={styles.page}>
+    <div>
       resume
+      <div style={{ width: "100%", backgroundColor: "red" }}>a</div>
       <Button2 />
       {/* <main className={styles.main}>
         <ThemeImage
