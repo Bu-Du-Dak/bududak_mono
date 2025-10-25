@@ -151,6 +151,16 @@ importers:
       styled-components:
         specifier: '>=6'
         version: 6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+    devDependencies:
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      '@types/react':
+        specifier: 19.2.2
+        version: 19.2.2
+      '@types/react-dom':
+        specifier: 19.2.2
+        version: 19.2.2(@types/react@19.2.2)
 
 packages:
 
