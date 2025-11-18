@@ -1,14 +1,15 @@
-import StickySection from "../components/StickySection";
+import SectionWithTitle from "../components/SectionWithTitle";
 import ResumeContents from "../components/ResumeContents";
+import ResumeCodeCamp from "../components/ResumeCodeCamp";
 
 export default function Home() {
   return (
     <div>
-      <StickySection title={"resume"}>
+      <SectionWithTitle title={"test"}>
+        <ResumeCodeCamp />
         <ResumeContents />
         <ResumeContents />
-        <ResumeContents />
-      </StickySection>
+      </SectionWithTitle>
       {/* <Button2 /> */}
     </div>
   );

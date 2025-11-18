@@ -7,7 +7,9 @@ export const breakpoints = {
 type Keys = keyof typeof breakpoints;
 
 export const media = {
+  // less than
   lt: (key: Keys) => `@media (max-width: ${breakpoints[key] - 1}px)`,
+  // greater than or equal
   gte: (key: Keys) => `@media (min-width: ${breakpoints[key]}px)`,
   between: (a: Keys, b: Keys) =>
     `@media (min-width: ${breakpoints[a]}px) and (max-width: ${breakpoints[b] - 1}px)`,
