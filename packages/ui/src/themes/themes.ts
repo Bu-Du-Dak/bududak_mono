@@ -36,6 +36,8 @@ export type AppTheme = {
       xl: string;
       "2xl": string;
       "3xl": string;
+      "4xl": string;
+      "5xl": string;
     };
     weights: {
       regular: number;
