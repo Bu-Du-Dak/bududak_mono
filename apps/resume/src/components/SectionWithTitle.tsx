@@ -2,7 +2,7 @@
 import { ReactNode } from "react";
 import styled from "styled-components";
 
-export default function StickySection({
+export default function SectionWithTitle({
   title,
   children,
 }: {
