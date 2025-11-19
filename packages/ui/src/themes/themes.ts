@@ -9,7 +9,6 @@ const typography = {
     lg: "1.8rem",
     xl: "2rem",
     "2xl": "2.4rem",
-    // "2xl": "24px",
     "3xl": "3.4rem",
     "4xl": "4rem",
     "5xl": "4.6rem",
@@ -25,26 +24,7 @@ export type AppTheme = {
   colors: { bg: string; text: string; primary: string };
   radius: string;
   breakpoints: typeof breakpoints;
-  typography: {
-    fontFamily: string;
-    monoFamily: string;
-    sizes: {
-      xs: string;
-      sm: string;
-      md: string;
-      lg: string;
-      xl: string;
-      "2xl": string;
-      "3xl": string;
-      "4xl": string;
-      "5xl": string;
-    };
-    weights: {
-      regular: number;
-      medium: number;
-      bold: number;
-    };
-  };
+  typography: typeof typography;
 };
 
 export const lightTheme: AppTheme = {
