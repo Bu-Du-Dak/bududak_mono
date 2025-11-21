@@ -1,4 +1,4 @@
-import { breakpoints } from "../breakPoints";
+import { breakpoints } from "../styles/breakPoints";
 const typography = {
   fontFamily: `var(--font-geist-sans, system-ui, -apple-system, Segoe UI, Roboto, sans-serif)`,
   monoFamily: `var(--font-geist-mono, ui-monospace, SFMono-Regular, Menlo, monospace)`,
@@ -21,7 +21,7 @@ const typography = {
 } as const;
 export type AppTheme = {
   mode: "light" | "dark";
-  colors: { bg: string; text: string; primary: string };
+  colors: { bg: string; text: string; primary: string; secondary: string };
   radius: string;
   breakpoints: typeof breakpoints;
   typography: typeof typography;
@@ -29,7 +29,12 @@ export type AppTheme = {
 
 export const lightTheme: AppTheme = {
   mode: "light",
-  colors: { bg: "#ffffff", text: "#111111", primary: "#2F80ED" },
+  colors: {
+    bg: "#ffffff",
+    text: "#111111",
+    primary: "#2F80ED",
+    secondary: "#6EC6FF",
+  },
   radius: "1.2rem",
   breakpoints,
   typography,
@@ -37,7 +42,12 @@ export const lightTheme: AppTheme = {
 
 export const darkTheme: AppTheme = {
   mode: "dark",
-  colors: { bg: "#202021", text: "#EDEDED", primary: "#2F80ED" },
+  colors: {
+    bg: "#202021",
+    text: "#EDEDED",
+    primary: "#2F80ED",
+    secondary: "#6EC6FF",
+  },
   radius: "1.2rem",
   breakpoints,
   typography,

@@ -2,7 +2,8 @@
 import StickyBox from "@repo/ui/layout/StickyBox";
 import styled from "styled-components";
 import ResumeInfo from "./ResumeInfo";
-import { media } from "../../../../packages/ui/src/breakPoints";
+import { media } from "../../../../packages/ui/src/styles/breakPoints";
+import { List, ListItem } from "@repo/ui/components/List";
 
 export default function ResumeCodeCamp() {
   return (
@@ -13,7 +14,11 @@ export default function ResumeCodeCamp() {
         duration="2021.10 ~ 2022"
         description="aaa"
       />
-      <div style={{ height: "1500px" }}>a</div>
+      <List>
+        <ListItem>xzczxzcxzcxzxc</ListItem>
+        <ListItem>xzczxzcxzcxzxc2</ListItem>
+        <ListItem>xzczxzcxzcxzxc3</ListItem>
+      </List>
     </Wrapper>
   );
 }

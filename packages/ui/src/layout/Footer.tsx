@@ -1,6 +1,6 @@
 "use client";
 import styled from "styled-components";
-import { media } from "../breakPoints";
+import { media } from "../styles/breakPoints";
 
 export default function Footer() {
   return (
