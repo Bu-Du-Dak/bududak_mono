@@ -133,3 +133,18 @@ Learn more about the power of Turborepo:
 - [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
 - [Configuration Options](https://turborepo.com/docs/reference/configuration)
 - [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+
+## 💻 환경
+
+pnpm : 9.0.0
+
+## 🚀 실행
+
+```bash
+pnpm i
+pnpm dev
+# resume
+pnpm dev:resume
+# blog
+pnpm dev:blog
+```
