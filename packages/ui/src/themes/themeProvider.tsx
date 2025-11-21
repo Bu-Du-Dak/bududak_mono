@@ -3,7 +3,7 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { ThemeProvider } from "styled-components";
 
-import { GlobalStyle } from "../global-styles";
+import { GlobalStyle } from "../styles/global-styles";
 import { AppTheme, darkTheme, lightTheme } from "./themes";
 
 type ThemeContextValue = {
@@ -27,13 +27,13 @@ function writeCookie(mode: "light" | "dark") {
 }
 
 export function UIThemeProvider({
-  initialMode,
+  initialMode = "dark",
   children,
 }: {
   initialMode?: "light" | "dark";
   children: React.ReactNode;
 }) {
-  const [mode, setMode] = useState<"light" | "dark">(initialMode ?? "light");
+  const [mode, setMode] = useState<"light" | "dark">(initialMode);
 
   useEffect(() => {
     const saved = readCookie();

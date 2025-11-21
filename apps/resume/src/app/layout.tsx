@@ -15,10 +15,10 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const c = await cookies();
-  const mode = (c.get("theme")?.value as "light" | "dark") ?? "light";
+  const cookie = await cookies();
+  const mode = (cookie.get("theme")?.value as "light" | "dark") ?? "dark";
   return (
-    <html lang="ko">
+    <html lang="ko" data-theme={mode}>
       <body>
         {/* <UIThemeProvider initialMode={mode}> */}
         <DefaultLayout initialMode={mode}>{children}</DefaultLayout>

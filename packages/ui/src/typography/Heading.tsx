@@ -1,15 +1,11 @@
-import { ReactNode } from "react";
 import styled from "styled-components";
-import { media } from "../breakPoints";
+import { media } from "../styles/breakPoints";
 type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
-
-export default function Heading({
-  children,
-  level = 1,
-}: {
-  children: ReactNode;
-  level: HeadingLevel;
-}) {
+type StyledHeadingProps = React.ComponentProps<typeof StyledHeading>;
+type HeadingProps = Omit<StyledHeadingProps, "$level"> & {
+  level?: HeadingLevel;
+};
+export default function Heading({ children, level = 1 }: HeadingProps) {
   return (
     <StyledHeading as={`h${level}`} $level={level}>
       {children}
