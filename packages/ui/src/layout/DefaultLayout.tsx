@@ -1,3 +1,4 @@
+"use client";
 import { ReactNode } from "react";
 import { UIThemeProvider } from "../themes/themeProvider";
 import Header from "./Header";
