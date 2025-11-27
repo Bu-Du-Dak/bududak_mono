@@ -1,7 +1,7 @@
 "use client";
 import { ReactNode } from "react";
 import styled from "styled-components";
-import { media } from "../breakPoints";
+import { media } from "../styles/breakPoints";
 
 export default function Contents({ children }: { children: ReactNode }) {
   return <ContentsContainer>{children}</ContentsContainer>;

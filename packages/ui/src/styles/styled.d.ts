@@ -7,6 +7,7 @@ declare module "styled-components" {
       bg: string;
       text: string;
       primary: string;
+      secondary: string;
     };
     radius: string;
     breakpoints: { mobile: number; tablet: number; web: number };
