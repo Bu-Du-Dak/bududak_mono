@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { getAllSlugs, getPostBySlug } from "../../../lib/posts";
 import ArticleLD from "../../../components/ArticleLD";
-
+const SITE_URL = "https://blog.bududak.com";
 type ParamsPromise = Promise<{ slug: string }>;
 
 export async function generateStaticParams() {
@@ -17,10 +17,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
-  const url = new URL(
-    `/posts/${post.slug}`,
-    process.env.SITE_URL || "http://localhost:3001"
-  ).toString();
+  const url = new URL(`/posts/${post.slug}`, SITE_URL).toString();
   const title = post.title;
   const description = post.description ?? `${post.title} | Bududak Blog`;
 
@@ -49,10 +46,7 @@ export default async function PostPage({ params }: { params: ParamsPromise }) {
 
   const post = await getPostBySlug(slug);
 
-  const url = new URL(
-    `/posts/${post.slug}`,
-    process.env.SITE_URL || "http://localhost:3001"
-  ).toString();
+  const url = new URL(`/posts/${post.slug}`, SITE_URL).toString();
 
   const description = post.description ?? `${post.title} - Bududak Blog`;
 
