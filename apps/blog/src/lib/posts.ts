@@ -47,6 +47,9 @@ function readAllRawPosts(): PostMeta[] {
 export function getAllPostsMeta(): PostMeta[] {
   return readAllRawPosts().sort((a, b) => (a.date < b.date ? 1 : -1));
 }
+export function getAllPostCategories(): Array<string | undefined> {
+  return readAllRawPosts().map((post) => post.category);
+}
 // 정적 경로 생성용 slug
 export function getAllSlugs(): string[] {
   return readAllRawPosts().map((post) => post.slug);
