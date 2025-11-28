@@ -2,6 +2,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { getAllSlugs, getPostBySlug } from "../../lib/posts";
 import ArticleLD from "../../components/ArticleLD";
+import PostContents from "../../components/PostContents";
+import PostNav from "../../components/PostNav";
 const SITE_URL = "https://blog.bududak.com";
 type ParamsPromise = Promise<{ slug: string }>;
 
@@ -62,19 +64,10 @@ export default async function PostPage({ params }: { params: ParamsPromise }) {
       <p style={{ marginBottom: 16 }}>
         <Link href="/">← 리스트로 돌아가기</Link>
       </p>
-
-      <article>
-        <h1 style={{ marginBottom: 8 }}>{post.title}</h1>
-        <div style={{ fontSize: "0.9rem", color: "#888", marginBottom: 24 }}>
-          {post.date}
-          {post.category ? ` · ${post.category}` : null}
-        </div>
-
-        <div
-          style={{ lineHeight: 1.7 }}
-          dangerouslySetInnerHTML={{ __html: post.contentHtml }}
-        />
-      </article>
+      <div style={{ display: "flex" }}>
+        <PostContents post={post} />
+        <PostNav />
+      </div>
     </main>
   );
 }

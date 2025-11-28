@@ -21,7 +21,13 @@ const typography = {
 } as const;
 export type AppTheme = {
   mode: "light" | "dark";
-  colors: { bg: string; text: string; primary: string; secondary: string };
+  colors: {
+    bg: string;
+    text: string;
+    border: string;
+    primary: string;
+    secondary: string;
+  };
   radius: string;
   breakpoints: typeof breakpoints;
   typography: typeof typography;
@@ -32,6 +38,7 @@ export const lightTheme: AppTheme = {
   colors: {
     bg: "#ffffff",
     text: "#111111",
+    border: "#585858",
     primary: "#2F80ED",
     secondary: "#6EC6FF",
   },
@@ -45,6 +52,7 @@ export const darkTheme: AppTheme = {
   colors: {
     bg: "#202021",
     text: "#EDEDED",
+    border: "#D9D9D9",
     primary: "#2F80ED",
     secondary: "#6EC6FF",
   },
