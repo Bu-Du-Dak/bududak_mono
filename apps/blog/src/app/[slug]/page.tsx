@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { getAllSlugs, getPostBySlug } from "../../../lib/posts";
-import ArticleLD from "../../../components/ArticleLD";
+import { getAllSlugs, getPostBySlug } from "../../lib/posts";
+import ArticleLD from "../../components/ArticleLD";
 const SITE_URL = "https://blog.bududak.com";
 type ParamsPromise = Promise<{ slug: string }>;
 
