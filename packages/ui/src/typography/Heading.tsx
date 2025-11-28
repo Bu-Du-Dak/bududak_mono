@@ -1,3 +1,4 @@
+"use client";
 import styled from "styled-components";
 import { media } from "../styles/breakPoints";
 type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
