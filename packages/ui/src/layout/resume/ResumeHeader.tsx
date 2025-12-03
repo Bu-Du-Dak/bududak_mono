@@ -1,9 +1,9 @@
 "use client";
 import styled from "styled-components";
-import ThemeToggle from "../themes/themeToggle";
-import { media } from "../styles/breakPoints";
+import ThemeToggle from "../../themes/themeToggle";
+import { media } from "../../styles/breakPoints";
 
-export default function Header() {
+export default function ResumeHeader() {
   return (
     <HeaderContainer>
       <ThemeToggle />

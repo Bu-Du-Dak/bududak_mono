@@ -1,11 +1,11 @@
 "use client";
 import { ReactNode } from "react";
-import { UIThemeProvider } from "../themes/themeProvider";
-import Header from "./Header";
-import Contents from "./Contents";
-import Footer from "./Footer";
+import { UIThemeProvider } from "../../themes/themeProvider";
 
-export default function DefaultLayout({
+import Footer from "../Footer";
+import BlogContents from "./BlogContents";
+
+export default function BlogLayout({
   initialMode,
   children,
 }: {
@@ -15,8 +15,8 @@ export default function DefaultLayout({
   return (
     <div>
       <UIThemeProvider initialMode={initialMode}>
-        <Header />
-        <Contents>{children}</Contents>
+        {/* <Header /> */}
+        <BlogContents>{children}</BlogContents>
         <Footer />
       </UIThemeProvider>
     </div>

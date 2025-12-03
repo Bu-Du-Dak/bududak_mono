@@ -1,10 +1,10 @@
-import List from "../../../components/List";
+import List from "../../../components/list/List";
 
-export default async function ListByCategory({
+export default function ListByCategory({
   params,
 }: {
   params: { category: string };
 }) {
-  const { category } = await params;
+  const { category } = params;
   return <List category={category} />;
 }

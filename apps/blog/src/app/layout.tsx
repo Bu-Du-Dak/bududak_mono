@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 import { cookies } from "next/headers";
-import DefaultLayout from "../../../../packages/ui/src/layout/DefaultLayout";
 import StyledComponentsRegistry from "../components/StyledComponentsRegistry";
+import BlogLayout from "@repo/ui/layout/blog/BlogLayout";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,7 +20,7 @@ export default async function RootLayout({
     <html lang="ko">
       <body>
         <StyledComponentsRegistry>
-          <DefaultLayout initialMode={mode}>{children}</DefaultLayout>
+          <BlogLayout initialMode={mode}>{children}</BlogLayout>
         </StyledComponentsRegistry>
       </body>
     </html>

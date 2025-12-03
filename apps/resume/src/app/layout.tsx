@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { cookies } from "next/headers";
-import DefaultLayout from "@repo/ui/layout/DefaultLayout";
+import ResumeLayout from "@repo/ui/layout/resume/ResumeLayout";
 import StyledComponentsRegistry from "../components/StyledComponentsRegistry";
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export default async function RootLayout({
     <html lang="ko" data-theme={mode}>
       <body>
         <StyledComponentsRegistry>
-          <DefaultLayout initialMode={mode}>{children}</DefaultLayout>
+          <ResumeLayout initialMode={mode}>{children}</ResumeLayout>
         </StyledComponentsRegistry>
       </body>
     </html>
