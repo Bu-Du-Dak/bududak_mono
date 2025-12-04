@@ -14,6 +14,8 @@ export default function Heading({ children, level = 1 }: HeadingProps) {
   );
 }
 const StyledHeading = styled.h1<{ $level: HeadingLevel }>`
+  word-break: break-all;
+  overflow-wrap: break-word;
   font-size: ${({ theme, $level }) => {
     switch ($level) {
       case 1:
