@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 import { cookies } from "next/headers";
-import ResumeLayout from "@repo/ui/layout/resume/ResumeLayout";
 import StyledComponentsRegistry from "../components/StyledComponentsRegistry";
+import DefaultLayout from "@repo/ui/layout/DefaultLayout";
 
 export const metadata: Metadata = {
   title: "홍재훈 | 프론트엔드 개발자",
@@ -20,7 +20,7 @@ export default async function RootLayout({
     <html lang="ko" data-theme={mode}>
       <body>
         <StyledComponentsRegistry>
-          <ResumeLayout initialMode={mode}>{children}</ResumeLayout>
+          <DefaultLayout initialMode={mode}>{children}</DefaultLayout>
         </StyledComponentsRegistry>
       </body>
     </html>

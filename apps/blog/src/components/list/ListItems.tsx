@@ -32,8 +32,17 @@ const Item = styled.li`
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+  a {
+    display: inline-block;
+    max-width: 100%;
+    word-break: break-all;
+    overflow-wrap: break-word;
+  }
+  a:hover {
+    opacity: 0.9;
+    text-decoration: underline;
+  }
 `;
 const Info = styled.span`
   font-size: ${({ theme }) => theme.typography.sizes.sm};
-  /* color:${({ theme }) => theme.colors.secondary} */
 `;
