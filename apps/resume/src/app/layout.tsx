@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { cookies } from "next/headers";
+import StyledComponentsRegistry from "../components/StyledComponentsRegistry";
 import DefaultLayout from "@repo/ui/layout/DefaultLayout";
 
 export const metadata: Metadata = {
@@ -18,7 +19,9 @@ export default async function RootLayout({
   return (
     <html lang="ko" data-theme={mode}>
       <body>
-        <DefaultLayout initialMode={mode}>{children}</DefaultLayout>
+        <StyledComponentsRegistry>
+          <DefaultLayout initialMode={mode}>{children}</DefaultLayout>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );
