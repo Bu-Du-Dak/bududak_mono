@@ -1,9 +1,9 @@
 ---
-title: "blog tq"
+title: "blogasdasdasdasdasdasdasdascascascasc tq"
 date: "2025-11-25"
 category: "Ts"
 slug: "tq"
-description: "tq blog2"
+description: "테스트 설명길어졌을떄테스트 설명길어졌을떄테스트 설명길어졌을떄테스트 설명길어졌을떄테스트 설명길어졌을떄테스트 설명길어졌을떄테스트 설명길어졌을떄"
 ---
 
 여기가 **본문**

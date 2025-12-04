@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 import { cookies } from "next/headers";
-import DefaultLayout from "@repo/ui/layout/DefaultLayout";
 import StyledComponentsRegistry from "../components/StyledComponentsRegistry";
+import DefaultLayout from "@repo/ui/layout/DefaultLayout";
 
 export const metadata: Metadata = {
   title: "홍재훈 | 프론트엔드 개발자",

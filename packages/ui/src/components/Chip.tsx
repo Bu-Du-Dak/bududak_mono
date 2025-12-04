@@ -2,8 +2,12 @@
 import styled from "styled-components";
 
 type ChipProps = React.ComponentProps<typeof CustomChip>;
-export default function Chip({ children, ...rest }: ChipProps) {
-  return <CustomChip {...rest}>{children}</CustomChip>;
+export function Chip({ children, color, ...rest }: ChipProps) {
+  return (
+    <CustomChip $color={color} {...rest}>
+      {children}
+    </CustomChip>
+  );
 }
 const CustomChip = styled.div<{ $color?: string }>`
   width: fit-content;
@@ -12,6 +16,7 @@ const CustomChip = styled.div<{ $color?: string }>`
   color: ${({ theme, $color }) => ($color ? $color : theme.colors.border)};
   padding: 0.5rem 1rem;
   border-radius: 2rem;
-  border: ${({ theme, $color }) =>
-    $color ? `0.1rem solid ${$color}` : `0.1rem solid ${theme.colors.border}`};
+  border-width: 0.1rem;
+  border-style: solid;
+  border-color: ${({ theme, $color }) => $color || theme.colors.border};
 `;
