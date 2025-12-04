@@ -94,6 +94,7 @@ const Knob = styled.div<{ $isDark: boolean }>`
 
     transform-origin: ${({ $isDark }) =>
       $isDark ? "right center" : "left center"};
+
     transform: scaleX(1) scaleY(1);
     transition:
       transform 0.22s ease-out,

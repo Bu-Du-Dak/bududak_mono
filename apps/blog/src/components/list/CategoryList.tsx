@@ -48,9 +48,13 @@ const ListWrapper = styled.div`
   top: 1rem;
   align-self: flex-start;
   ${media.lt("tablet")} {
-    position: static;
+    position: sticky;
+    top: 0;
     max-width: none;
     width: 100%;
+    padding-block: 1.2rem;
+    background-color: ${({ theme }) => `${theme.colors.bg}cc`};
+    backdrop-filter: blur(0.8rem);
   }
 `;
 const Title = styled.div`

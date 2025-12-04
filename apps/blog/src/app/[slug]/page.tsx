@@ -53,7 +53,7 @@ export default async function PostPage({ params }: { params: ParamsPromise }) {
   const description = post.description ?? `${post.title} - Bududak Blog`;
 
   return (
-    <main>
+    <div>
       <ArticleLD
         title={post.title}
         description={description}
@@ -61,13 +61,10 @@ export default async function PostPage({ params }: { params: ParamsPromise }) {
         datePublished={post.date}
         category={post.category}
       />
-      <p style={{ marginBottom: 16 }}>
-        <Link href="/">← 리스트로 돌아가기</Link>
-      </p>
       <div style={{ display: "flex" }}>
         <PostContents post={post} />
         <PostNav />
       </div>
-    </main>
+    </div>
   );
 }
