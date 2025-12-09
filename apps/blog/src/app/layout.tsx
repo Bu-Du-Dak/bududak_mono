@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 import { cookies } from "next/headers";
-import DefaultLayout from "@repo/ui/layout/DefaultLayout";
+
 import StyledComponentsRegistry from "../components/StyledComponentsRegistry";
-import HeaderContents from "../components/HeaderContents";
+import CustomThemeProvider from "@repo/ui/layout/CustomThemeProvider";
 
 export const metadata: Metadata = {
   title: "BuDuDak's Dev Notes",
@@ -21,17 +21,9 @@ export default async function RootLayout({
     <html lang="ko">
       <body>
         <StyledComponentsRegistry>
-          <DefaultLayout
-            initialMode={mode}
-            headerContent={<HeaderContents />}
-            maxWidth={{
-              web: 90,
-              tablet: 90,
-              mobile: "100%",
-            }}
-          >
+          <CustomThemeProvider initialMode={mode}>
             {children}
-          </DefaultLayout>
+          </CustomThemeProvider>
         </StyledComponentsRegistry>
       </body>
     </html>

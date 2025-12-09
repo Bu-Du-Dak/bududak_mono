@@ -4,7 +4,7 @@ import ArticleLD from "../../../components/ArticleLD";
 import PostContents from "../../../components/PostContents";
 import PostNav from "../../../components/PostNav";
 const SITE_URL = "https://blog.bududak.com";
-type ParamsPromise = Promise<{ slug: string }>;
+export type ParamsPromise = Promise<{ slug: string }>;
 
 export async function generateStaticParams() {
   const slugs = getAllSlugs();
@@ -60,7 +60,7 @@ export default async function PostPage({ params }: { params: ParamsPromise }) {
         datePublished={post.date}
         category={post.category}
       />
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
         <PostContents post={post} />
         <PostNav />
       </div>

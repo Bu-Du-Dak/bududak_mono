@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { media } from "../../../../packages/ui/src/styles/breakPoints";
 
 type Heading = {
   id: string;
@@ -69,7 +70,7 @@ export default function PostNav() {
       {
         root: null, // 윈도우 화면 기준
         // rootMargin: "0px 0px -85% 0px", // 화면 상단 15% 내에 타겟이 들어오면 반영 시작
-        rootMargin: "0px 0px -70% 0px", // 화면 상단 15% 내에 타겟이 들어오면 반영 시작
+        rootMargin: "0px 0px -70% 0px", // 더 안정적인거같은데
         threshold: [0, 1.0],
       }
     );
@@ -119,6 +120,9 @@ const Nav = styled.nav`
   position: sticky;
   padding-left: 1.2rem;
   border-left: ${({ theme }) => `0.2rem solid ${theme.colors.border}`};
+  ${media.lt("tablet")} {
+    display: none;
+  }
 `;
 const ListTitle = styled.div`
   font-weight: ${({ theme }) => theme.typography.weights.medium};
@@ -131,8 +135,6 @@ const Li = styled.li<{ $level?: number; $active?: boolean }>`
     $level === 2 ? 0 : $level === 3 ? "1.2rem" : $level === 4 ? "2.4rem" : 0};
   button {
     max-width: 26rem;
-    /* color: ${({ theme, $active }) =>
-      $active ? theme.colors.primary : theme.colors.text}; */
     font-size: ${({ theme }) => theme.typography.sizes.sm};
     font-weight: ${({ theme, $active }) =>
       $active

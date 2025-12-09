@@ -1,22 +1,31 @@
-"use client";
-import Link from "next/link";
-import { useParams } from "next/navigation";
+import DefaultLayout from "@repo/ui/layout/DefaultLayout";
+
 import { ReactNode } from "react";
-import styled from "styled-components";
+import { getPostBySlug } from "../../../lib/posts";
+import PostHeader from "../../../components/PostHeader";
+import { ParamsPromise } from "./page";
 
-export default function DetailLayout({ children }: { children: ReactNode }) {
-  const { slug } = useParams<{ slug: string }>();
+export default async function DetailLayout({
+  params,
+  children,
+}: {
+  params: ParamsPromise;
+  children: ReactNode;
+}) {
+  const { slug } = await params;
 
-  console.log(slug);
+  const post = await getPostBySlug(slug);
+
   return (
-    <div>
-      <BackBtn>
-        <Link href="/">← 리스트로 돌아가기</Link>
-      </BackBtn>
+    <DefaultLayout
+      headerContent={<PostHeader post={post} />}
+      maxWidth={{
+        web: 90,
+        tablet: 90,
+        mobile: "100%",
+      }}
+    >
       {children}
-    </div>
+    </DefaultLayout>
   );
 }
-const BackBtn = styled.div`
-  margin: 2rem 0;
-`;

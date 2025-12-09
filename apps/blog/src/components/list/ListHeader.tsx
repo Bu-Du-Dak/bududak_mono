@@ -3,10 +3,10 @@
 import ThemeToggle from "@repo/ui/themes/themeToggle";
 import Heading from "@repo/ui/typography/Heading";
 import styled, { useTheme } from "styled-components";
-import { media } from "../../../../packages/ui/src/styles/breakPoints";
+import { media } from "../../../../../packages/ui/src/styles/breakPoints";
 import Paragraph from "@repo/ui/typography/Paragraph";
 
-export default function HeaderContents() {
+export default function ListHeader() {
   const theme = useTheme();
   return (
     <Wrapper>
