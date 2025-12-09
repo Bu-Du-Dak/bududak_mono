@@ -17,8 +17,7 @@
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
     "remark": "^15.0.1",
-    "remark-html": "^16.0.1",
-    "styled-components": "^6.1.19"
+    "remark-html": "^16.0.1"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",

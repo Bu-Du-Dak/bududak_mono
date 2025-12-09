@@ -51,9 +51,6 @@ importers:
       remark-html:
         specifier: ^16.0.1
         version: 16.0.1
-      styled-components:
-        specifier: ^6.1.19
-        version: 6.1.19(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
