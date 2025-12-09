@@ -2,8 +2,6 @@
 import { ReactNode } from "react";
 import styled, { css } from "styled-components";
 import { media } from "../styles/breakPoints";
-import { UIThemeProvider } from "../themes/themeProvider";
-import CustomThemeProvider from "./CustomThemeProvider";
 
 type MaxWidth = {
   web?: number | string;
@@ -12,7 +10,6 @@ type MaxWidth = {
 };
 
 type DefaultLayoutProps = {
-  // initialMode: "light" | "dark";
   headerContent?: ReactNode;
   children: ReactNode;
   maxWidth?: MaxWidth;
@@ -23,7 +20,6 @@ function sizeFormatter(size: number | string) {
 }
 
 export default function DefaultLayout({
-  // initialMode,
   headerContent,
   children,
   maxWidth,
