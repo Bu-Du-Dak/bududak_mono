@@ -68,7 +68,8 @@ export default function PostNav() {
       },
       {
         root: null, // 윈도우 화면 기준
-        rootMargin: "0px 0px -85% 0px", // 화면 상단 15% 내에 타겟이 들어오면 반영 시작
+        // rootMargin: "0px 0px -85% 0px", // 화면 상단 15% 내에 타겟이 들어오면 반영 시작
+        rootMargin: "0px 0px -70% 0px", // 화면 상단 15% 내에 타겟이 들어오면 반영 시작
         threshold: [0, 1.0],
       }
     );

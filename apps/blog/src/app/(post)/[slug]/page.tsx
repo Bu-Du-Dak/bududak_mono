@@ -1,9 +1,8 @@
-import Link from "next/link";
 import type { Metadata } from "next";
-import { getAllSlugs, getPostBySlug } from "../../lib/posts";
-import ArticleLD from "../../components/ArticleLD";
-import PostContents from "../../components/PostContents";
-import PostNav from "../../components/PostNav";
+import { getAllSlugs, getPostBySlug } from "../../../lib/posts";
+import ArticleLD from "../../../components/ArticleLD";
+import PostContents from "../../../components/PostContents";
+import PostNav from "../../../components/PostNav";
 const SITE_URL = "https://blog.bududak.com";
 type ParamsPromise = Promise<{ slug: string }>;
 
@@ -21,7 +20,7 @@ export async function generateMetadata({
   const post = await getPostBySlug(slug);
   const url = new URL(`/posts/${post.slug}`, SITE_URL).toString();
   const title = post.title;
-  const description = post.description ?? `${post.title} | Bududak Blog`;
+  const description = post.description ?? `${post.title} | BuDuDak's Dev Notes`;
 
   return {
     title,

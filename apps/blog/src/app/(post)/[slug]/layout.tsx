@@ -1,9 +1,13 @@
 "use client";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import { ReactNode } from "react";
 import styled from "styled-components";
 
 export default function DetailLayout({ children }: { children: ReactNode }) {
+  const { slug } = useParams<{ slug: string }>();
+
+  console.log(slug);
   return (
     <div>
       <BackBtn>
