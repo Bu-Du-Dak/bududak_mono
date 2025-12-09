@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 
   ${media.lt("tablet")} {
     flex-direction: column-reverse;
-    gap: 2rem;
+    gap: 3rem;
     padding: 4rem 0;
     justify-content: flex-start;
   }

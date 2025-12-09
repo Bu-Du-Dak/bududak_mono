@@ -1,11 +1,10 @@
-import Link from "next/link";
 import type { Metadata } from "next";
-import { getAllSlugs, getPostBySlug } from "../../lib/posts";
-import ArticleLD from "../../components/ArticleLD";
-import PostContents from "../../components/PostContents";
-import PostNav from "../../components/PostNav";
+import { getAllSlugs, getPostBySlug } from "../../../lib/posts";
+import ArticleLD from "../../../components/ArticleLD";
+import PostContents from "../../../components/PostContents";
+import PostNav from "../../../components/PostNav";
 const SITE_URL = "https://blog.bududak.com";
-type ParamsPromise = Promise<{ slug: string }>;
+export type ParamsPromise = Promise<{ slug: string }>;
 
 export async function generateStaticParams() {
   const slugs = getAllSlugs();
@@ -21,7 +20,7 @@ export async function generateMetadata({
   const post = await getPostBySlug(slug);
   const url = new URL(`/posts/${post.slug}`, SITE_URL).toString();
   const title = post.title;
-  const description = post.description ?? `${post.title} | Bududak Blog`;
+  const description = post.description ?? `${post.title} | BuDuDak's Dev Notes`;
 
   return {
     title,
@@ -61,7 +60,7 @@ export default async function PostPage({ params }: { params: ParamsPromise }) {
         datePublished={post.date}
         category={post.category}
       />
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
         <PostContents post={post} />
         <PostNav />
       </div>
