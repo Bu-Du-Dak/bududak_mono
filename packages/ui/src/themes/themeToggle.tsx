@@ -1,10 +1,10 @@
 "use client";
 import styled from "styled-components";
-import { useTheme } from "./themeProvider";
+import { useThemeMode } from "./themeProvider";
 import { Moon, Sun } from "lucide-react";
 
 export default function ThemeToggle() {
-  const { mode, toggle } = useTheme();
+  const { mode, toggle } = useThemeMode();
   const isDark = mode === "dark";
 
   return (
