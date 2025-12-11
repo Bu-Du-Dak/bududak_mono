@@ -39,7 +39,6 @@ export function UIThemeProvider({
 
   const value = useMemo<ThemeContextValue>(
     () => ({
-      // theme,
       mode,
       toggle: () => setMode((m) => (m === "dark" ? "light" : "dark")),
       setMode,

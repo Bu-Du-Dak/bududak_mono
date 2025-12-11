@@ -46,7 +46,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     background: ${({ theme }) => theme.colors.bg};
     color: ${({ theme }) => theme.colors.text};
-    transition: background .2s ease, color .2s ease;
+    transition: background .5s ease, color .5s ease;
     font-family: ${({ theme }) => theme.typography.fontFamily};
     font-size: ${({ theme }) => theme.typography.sizes.md};
     font-weight: ${({ theme }) => theme.typography.weights.regular};

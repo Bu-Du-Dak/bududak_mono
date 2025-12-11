@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { getAllSlugs, getPostBySlug } from "../../../lib/posts";
 import ArticleLD from "../../../components/ArticleLD";
-import PostContents from "../../../components/PostContents";
-import PostNav from "../../../components/PostNav";
+import PostContents from "../../../components/post/PostContents";
+import PostNav from "../../../components/post/PostNav";
 const SITE_URL = "https://blog.bududak.com";
 export type ParamsPromise = Promise<{ slug: string }>;
 

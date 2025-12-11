@@ -1,6 +1,6 @@
 "use client";
 import styled from "styled-components";
-import { PostData } from "../lib/posts";
+import { PostData } from "../../lib/posts";
 
 export default function PostContents({ post }: { post: PostData }) {
   return (

@@ -2,6 +2,7 @@
 import styled from "styled-components";
 import { useThemeMode } from "./themeProvider";
 import { Moon, Sun } from "lucide-react";
+import { media } from "../styles/breakPoints";
 
 export default function ThemeToggle() {
   const { mode, toggle } = useThemeMode();
@@ -30,6 +31,9 @@ const Btn = styled.button`
   display: inline-flex;
   align-items: center;
   cursor: pointer;
+  ${media.lt("tablet")} {
+    margin-top: 0.6rem;
+  }
 `;
 
 const Switch = styled.div<{ $isDark: boolean }>`
