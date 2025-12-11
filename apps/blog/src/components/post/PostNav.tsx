@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { media } from "../../../../packages/ui/src/styles/breakPoints";
+import { media } from "../../../../../packages/ui/src/styles/breakPoints";
 
 type Heading = {
   id: string;

@@ -2,7 +2,7 @@ import DefaultLayout from "@repo/ui/layout/DefaultLayout";
 
 import { ReactNode } from "react";
 import { getPostBySlug } from "../../../lib/posts";
-import PostHeader from "../../../components/PostHeader";
+import PostHeader from "../../../components/post/PostHeader";
 import { ParamsPromise } from "./page";
 
 export default async function DetailLayout({

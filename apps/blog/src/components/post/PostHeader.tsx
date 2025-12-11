@@ -1,11 +1,11 @@
 "use client";
 import styled from "styled-components";
-import { media } from "../../../../packages/ui/src/styles/breakPoints";
+import { media } from "../../../../../packages/ui/src/styles/breakPoints";
 import ThemeToggle from "@repo/ui/themes/themeToggle";
 import Paragraph from "@repo/ui/typography/Paragraph";
 import Heading from "@repo/ui/typography/Heading";
 import { Chip } from "@repo/ui/components/Chip";
-import { PostData } from "../lib/posts";
+import { PostData } from "../../lib/posts";
 
 import { useRouter } from "next/navigation";
 

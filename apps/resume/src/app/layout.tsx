@@ -4,9 +4,11 @@ import { cookies } from "next/headers";
 import StyledComponentsRegistry from "../components/StyledComponentsRegistry";
 import DefaultLayout from "@repo/ui/layout/DefaultLayout";
 import CustomThemeProvider from "@repo/ui/layout/CustomThemeProvider";
+import ResumeHeader from "../components/ResumeHeader";
 
 export const metadata: Metadata = {
-  title: "홍재훈 | 프론트엔드 개발자",
+  // title: "홍재훈 | 프론트엔드 개발자",
+  title: "ㅁㅁㅁ",
   description: "프론트엔드 개발자 홍재훈입니다.",
 };
 
@@ -22,7 +24,16 @@ export default async function RootLayout({
       <body>
         <StyledComponentsRegistry>
           <CustomThemeProvider initialMode={mode}>
-            <DefaultLayout>{children}</DefaultLayout>
+            <DefaultLayout
+              headerContent={<ResumeHeader />}
+              maxWidth={{
+                web: 75,
+                tablet: 75,
+                mobile: "100%",
+              }}
+            >
+              {children}
+            </DefaultLayout>
           </CustomThemeProvider>
         </StyledComponentsRegistry>
       </body>
