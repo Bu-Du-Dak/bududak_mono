@@ -19,6 +19,8 @@ const StyledParagraph = styled.p<{
   $color?: string;
   $fontWeight?: string | number;
 }>`
+  word-break: break-all;
+  overflow-wrap: break-word;
   color: ${({ $color, theme }) => $color ?? theme.colors.text};
   font-weight: ${({ $fontWeight, theme }) =>
     $fontWeight ?? theme.typography.weights.regular};

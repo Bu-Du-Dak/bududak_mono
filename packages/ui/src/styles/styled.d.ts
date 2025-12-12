@@ -9,6 +9,7 @@ declare module "styled-components" {
       border: string;
       primary: string;
       secondary: string;
+      tertiary: string;
     };
     radius: string;
     breakpoints: { mobile: number; tablet: number; web: number };
