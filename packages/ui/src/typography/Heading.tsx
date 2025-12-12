@@ -6,9 +6,13 @@ type StyledHeadingProps = React.ComponentProps<typeof StyledHeading>;
 type HeadingProps = Omit<StyledHeadingProps, "$level"> & {
   level?: HeadingLevel;
 };
-export default function Heading({ children, level = 1 }: HeadingProps) {
+export default function Heading({
+  children,
+  level = 1,
+  ...rest
+}: HeadingProps) {
   return (
-    <StyledHeading as={`h${level}`} $level={level}>
+    <StyledHeading as={`h${level}`} $level={level} {...rest}>
       {children}
     </StyledHeading>
   );

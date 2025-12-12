@@ -14,6 +14,7 @@ const Ul = styled.ul`
   list-style-type: disc;
 `;
 const Li = styled.li`
+  margin-bottom: 1rem;
   &::marker {
     color: ${({ theme }) => theme.colors.primary};
   }
