@@ -2,7 +2,6 @@
 import { ReactNode } from "react";
 import styled, { css } from "styled-components";
 import { media } from "../styles/breakPoints";
-import { UIThemeProvider } from "../themes/themeProvider";
 
 type MaxWidth = {
   web?: number | string;
@@ -11,7 +10,6 @@ type MaxWidth = {
 };
 
 type DefaultLayoutProps = {
-  initialMode: "light" | "dark";
   headerContent?: ReactNode;
   children: ReactNode;
   maxWidth?: MaxWidth;
@@ -22,29 +20,26 @@ function sizeFormatter(size: number | string) {
 }
 
 export default function DefaultLayout({
-  initialMode,
   headerContent,
   children,
   maxWidth,
 }: DefaultLayoutProps) {
   return (
-    <UIThemeProvider initialMode={initialMode}>
-      <Wrapper $maxWidth={maxWidth}>
-        <HeaderContainer>{headerContent}</HeaderContainer>
-        <MainContainer>{children}</MainContainer>
-        <FooterContainer>
-          Copyright © {new Date().getFullYear()}
-          <Anchor
-            href="https://github.com/Bu-Du-Dak"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Bu-Du-Dak
-          </Anchor>
-          All rights reserved.
-        </FooterContainer>
-      </Wrapper>
-    </UIThemeProvider>
+    <Wrapper $maxWidth={maxWidth}>
+      <HeaderContainer>{headerContent}</HeaderContainer>
+      <MainContainer>{children}</MainContainer>
+      <FooterContainer>
+        Copyright © {new Date().getFullYear()}
+        <Anchor
+          href="https://github.com/Bu-Du-Dak"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Bu-Du-Dak
+        </Anchor>
+        All rights reserved.
+      </FooterContainer>
+    </Wrapper>
   );
 }
 
@@ -89,7 +84,7 @@ const FooterContainer = styled.footer`
   width: 100%;
   margin: 0 auto;
   padding-block: 5rem;
-  font-size: ${({ theme }) => theme.typography.sizes.xs};
+  font-size: ${({ theme }) => theme.typography.sizes.sm};
 `;
 const Anchor = styled.a`
   color: ${({ theme }) => theme.colors.primary};

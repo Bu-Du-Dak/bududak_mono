@@ -27,6 +27,7 @@ export type AppTheme = {
     border: string;
     primary: string;
     secondary: string;
+    tertiary: string;
   };
   radius: string;
   breakpoints: typeof breakpoints;
@@ -36,11 +37,12 @@ export type AppTheme = {
 export const lightTheme: AppTheme = {
   mode: "light",
   colors: {
-    bg: "#ffffff",
+    bg: "#F7F7F8",
     text: "#111111",
     border: "#585858",
-    primary: "#2F80ED",
+    primary: "#1D4ED8",
     secondary: "#6EC6FF",
+    tertiary: "#BEBEBE",
   },
   radius: "1.2rem",
   breakpoints,
@@ -50,11 +52,12 @@ export const lightTheme: AppTheme = {
 export const darkTheme: AppTheme = {
   mode: "dark",
   colors: {
-    bg: "#202021",
+    bg: "#232327",
     text: "#EDEDED",
     border: "#D9D9D9",
-    primary: "#2F80ED",
+    primary: "#4C9BFF",
     secondary: "#6EC6FF",
+    tertiary: "#BEBEBE",
   },
   radius: "1.2rem",
   breakpoints,

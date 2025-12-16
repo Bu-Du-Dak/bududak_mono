@@ -17,7 +17,9 @@ export default function CategoryList({
   return (
     <ListWrapper>
       <Title>
-        <Paragraph>카테고리</Paragraph>
+        <Paragraph $fontWeight={theme.typography.weights.bold}>
+          Categories
+        </Paragraph>
       </Title>
       <List>
         {categories.map((category) => {
@@ -48,9 +50,16 @@ const ListWrapper = styled.div`
   top: 1rem;
   align-self: flex-start;
   ${media.lt("tablet")} {
-    position: static;
+    position: sticky;
+    top: 0;
     max-width: none;
-    width: 100%;
+    // 전체 좌우 padding 따라 재 설정
+    width: calc(100% + 4rem);
+    margin-left: -2rem;
+    padding-block: 1.2rem;
+    padding-inline: 2rem;
+
+    backdrop-filter: blur(0.9rem);
   }
 `;
 const Title = styled.div`

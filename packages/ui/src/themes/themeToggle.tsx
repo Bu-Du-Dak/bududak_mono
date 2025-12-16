@@ -1,10 +1,11 @@
 "use client";
 import styled from "styled-components";
-import { useTheme } from "./themeProvider";
+import { useThemeMode } from "./themeProvider";
 import { Moon, Sun } from "lucide-react";
+import { media } from "../styles/breakPoints";
 
 export default function ThemeToggle() {
-  const { mode, toggle } = useTheme();
+  const { mode, toggle } = useThemeMode();
   const isDark = mode === "dark";
 
   return (
@@ -30,6 +31,9 @@ const Btn = styled.button`
   display: inline-flex;
   align-items: center;
   cursor: pointer;
+  ${media.lt("tablet")} {
+    margin-top: 0.6rem;
+  }
 `;
 
 const Switch = styled.div<{ $isDark: boolean }>`
@@ -94,6 +98,7 @@ const Knob = styled.div<{ $isDark: boolean }>`
 
     transform-origin: ${({ $isDark }) =>
       $isDark ? "right center" : "left center"};
+
     transform: scaleX(1) scaleY(1);
     transition:
       transform 0.22s ease-out,
