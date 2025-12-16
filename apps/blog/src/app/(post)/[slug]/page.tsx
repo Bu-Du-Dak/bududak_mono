@@ -60,7 +60,13 @@ export default async function PostPage({ params }: { params: ParamsPromise }) {
         datePublished={post.date}
         category={post.category}
       />
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          gap: "8rem",
+        }}
+      >
         <PostContents post={post} />
         <PostNav />
       </div>

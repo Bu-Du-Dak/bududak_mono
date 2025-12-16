@@ -101,7 +101,11 @@ export default function PostNav() {
 
           return (
             <Li key={item.id} $level={item.level} $active={isActive}>
-              <button type="button" onClick={() => handleClick(item.id)}>
+              <button
+                type="button"
+                onClick={() => handleClick(item.id)}
+                title={item.text}
+              >
                 {item.text}
               </button>
             </Li>
@@ -113,7 +117,6 @@ export default function PostNav() {
 }
 
 const Nav = styled.nav`
-  overflow-y: auto;
   align-self: flex-start;
   top: 10rem;
   max-height: calc(100vh - 10rem);
@@ -134,7 +137,7 @@ const Li = styled.li<{ $level?: number; $active?: boolean }>`
   padding-left: ${({ $level }) =>
     $level === 2 ? 0 : $level === 3 ? "1.2rem" : $level === 4 ? "2.4rem" : 0};
   button {
-    max-width: 26rem;
+    max-width: 20rem;
     font-size: ${({ theme }) => theme.typography.sizes.sm};
     font-weight: ${({ theme, $active }) =>
       $active
