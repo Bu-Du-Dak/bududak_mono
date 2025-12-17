@@ -3,11 +3,13 @@ import SectionWithTitle from "../components/SectionWithTitle";
 import ResumeContents from "../components/ResumeContents";
 import styled from "styled-components";
 import CodeCamp from "../components/codecamp/CodeCamp";
+import FlipProfile from "@repo/ui/components/FlipProfile";
 
 export default function Home() {
   return (
     <Container>
       <SectionWithTitle title={"test"}>
+        <FlipProfile frontSrc="/profile.png" backSrc="/profileReal.jpg" />
         <ResumeContents
           title="코드캠프"
           subTitle="프론트엔드 개발자"
