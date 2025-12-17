@@ -38,7 +38,7 @@ export const lightTheme: AppTheme = {
   mode: "light",
   colors: {
     bg: "#F7F7F8",
-    text: "#111111",
+    text: "#1C1C1C",
     border: "#585858",
     primary: "#1D4ED8",
     secondary: "#6EC6FF",
@@ -53,7 +53,7 @@ export const darkTheme: AppTheme = {
   mode: "dark",
   colors: {
     bg: "#232327",
-    text: "#EDEDED",
+    text: "#E6E6E6",
     border: "#D9D9D9",
     primary: "#4C9BFF",
     secondary: "#6EC6FF",

@@ -84,7 +84,7 @@ const FooterContainer = styled.footer`
   width: 100%;
   margin: 0 auto;
   padding-block: 5rem;
-  font-size: ${({ theme }) => theme.typography.sizes.sm};
+  font-size: ${({ theme }) => theme.typography.sizes.xs};
 `;
 const Anchor = styled.a`
   color: ${({ theme }) => theme.colors.primary};
