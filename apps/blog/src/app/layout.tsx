@@ -8,6 +8,48 @@ import CustomThemeProvider from "@repo/ui/layout/CustomThemeProvider";
 export const metadata: Metadata = {
   title: "BuDuDak's Dev Notes",
   description: "Simple Notes for Complex Ideas",
+  metadataBase: new URL("https://blog.bududak.com"),
+  applicationName: "BuDuDak",
+  generator: "Next.js",
+  authors: [{ name: "BuDuDak" }],
+  creator: "BuDuDak",
+  publisher: "BuDuDak",
+  referrer: "origin-when-cross-origin",
+  keywords: ["BuDuDak", "Blog", "js", "ts", "frontend", "Next"],
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    siteName: "BuDuDak's Dev Notes",
+    locale: "ko_KR",
+    url: "https://blog.bududak.com",
+    images: [
+      //! 이미지 뭐넣지
+      { url: "", width: 1200, height: 630, alt: "BuDuDak's Dev Notes" },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    creator: "@BuDuDak",
+    //! 이미지 뭐넣지
+    images: [""],
+  },
+  alternates: {
+    languages: {
+      "ko-KR": "/ko",
+    },
+  },
   icons: {
     icon: [
       { url: "/favicons/favicon-16x16.png", sizes: "16x16", type: "image/png" },
