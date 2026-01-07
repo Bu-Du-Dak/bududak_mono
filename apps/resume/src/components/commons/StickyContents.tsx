@@ -1,10 +1,8 @@
 "use client";
 import styled from "styled-components";
 import ResumeInfo from "./ResumeInfo";
-import { media } from "../../../../packages/ui/src/styles/breakPoints";
-import { List, ListItem } from "@repo/ui/components/List";
+import { media } from "../../../../../packages/ui/src/styles/breakPoints";
 import { ReactNode } from "react";
-import Heading from "@repo/ui/typography/Heading";
 type ResumeContentsProps = {
   title: string;
   subTitle?: string;
@@ -12,7 +10,7 @@ type ResumeContentsProps = {
   description?: string;
   listComponent?: ReactNode;
 };
-export default function ResumeContents({
+export default function StickyContents({
   title,
   subTitle,
   duration,
@@ -27,7 +25,7 @@ export default function ResumeContents({
         duration={duration}
         description={description}
       />
-      <ListWrapper>{listComponent}</ListWrapper>
+      <ResumeDescription>{listComponent}</ResumeDescription>
     </Wrapper>
   );
 }
@@ -39,7 +37,7 @@ const Wrapper = styled.div`
     gap: 2rem;
   }
 `;
-const ListWrapper = styled.div`
+const ResumeDescription = styled.div`
   ${media.lt("tablet")} {
     padding: 0 0 0 2rem;
     border-left: ${({ theme }) => `0.3rem solid ${theme.colors.secondary}`};

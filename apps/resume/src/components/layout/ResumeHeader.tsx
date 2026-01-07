@@ -1,8 +1,8 @@
 "use client";
 import styled from "styled-components";
-import { media } from "../../../../packages/ui/src/styles/breakPoints";
 import ThemeToggle from "@repo/ui/themes/themeToggle";
 import Heading from "@repo/ui/typography/Heading";
+import { media } from "../../../../../packages/ui/src/styles/breakPoints";
 
 export default function ResumeHeader() {
   return (
