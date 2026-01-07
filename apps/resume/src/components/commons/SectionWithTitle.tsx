@@ -12,7 +12,10 @@ export default function SectionWithTitle({
 }) {
   return (
     <Wrapper>
-      <Heading level={2}>{title}</Heading>
+      <Heading level={2}>
+        {title}
+        <span className="dot">.</span>
+      </Heading>
       {children}
     </Wrapper>
   );
@@ -21,4 +24,9 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   gap: 4rem;
+  .dot {
+    display: inline-block;
+    padding-left: 0.2rem;
+    color: ${({ theme }) => theme.colors.secondary};
+  }
 `;
