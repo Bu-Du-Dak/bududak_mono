@@ -12,9 +12,9 @@ export function Chip({ children, color, ...rest }: ChipProps) {
 const CustomChip = styled.div<{ $color?: string }>`
   width: fit-content;
   text-align: center;
-  font-size: ${({ theme }) => theme.typography.sizes.sm};
+  font-size: ${({ theme }) => theme.typography.sizes.xs};
   color: ${({ theme, $color }) => ($color ? $color : theme.colors.border)};
-  padding: 0.5rem 1rem;
+  padding: 0.25rem 1rem;
   border-radius: 2rem;
   border-width: 0.1rem;
   border-style: solid;

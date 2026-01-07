@@ -1,9 +1,9 @@
 import StickyBox from "@repo/ui/layout/StickyBox";
 import styled from "styled-components";
-import { media } from "../../../../packages/ui/src/styles/breakPoints";
+import { media } from "../../../../../packages/ui/src/styles/breakPoints";
 import Heading from "@repo/ui/typography/Heading";
 import Paragraph from "@repo/ui/typography/Paragraph";
-import { dateFormatter } from "../lib/dateFormatter";
+import { dateFormatter } from "../../lib/dateFormatter";
 
 type InfoPropsType = {
   title: string;
