@@ -17,6 +17,7 @@ export default function SectionWithTitle({
         <span className="dot">.</span>
       </Heading>
       {children}
+      <Hr />
     </Wrapper>
   );
 }
@@ -29,4 +30,10 @@ const Wrapper = styled.section`
     padding-left: 0.2rem;
     color: ${({ theme }) => theme.colors.secondary};
   }
+`;
+const Hr = styled.hr`
+  width: 100%;
+  height: 0.1rem;
+  background-color: ${({ theme }) => theme.colors.border};
+  opacity: 0.1;
 `;

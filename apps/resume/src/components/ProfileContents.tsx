@@ -4,7 +4,7 @@ import styled from "styled-components";
 export default function ProfileContents() {
   return (
     <Container>
-      <FlipProfile frontSrc="/profile.png" backSrc="/profileReal.jpg" />
+      <FlipProfile frontSrc="/cartoonProfile.png" backSrc="/profile.jpg" />
       <Intro>
         저저저저저저저 으으으으으으으 느느느느느는 이이잉 럴러러러
         삿사사삿람마마맘 임미미밈니니니니다다다
