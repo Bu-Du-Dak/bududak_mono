@@ -52,4 +52,8 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: ${({ theme }) => theme.typography.weights.regular};
   }
   html { font-size: 62.5%; } 
+  
+  ::selection{
+    background: rgba(76, 155, 255, 0.25);
+  }
 `;
