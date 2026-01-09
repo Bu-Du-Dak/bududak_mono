@@ -1,8 +1,12 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { remark } from "remark";
-import html from "remark-html";
+import { unified } from "unified";
+import remarkParse from "remark-parse";
+import remarkGfm from "remark-gfm";
+import remarkRehype from "remark-rehype";
+import rehypePrettyCode from "rehype-pretty-code";
+import rehypeStringify from "rehype-stringify";
 
 const postsDirectory = path.join(process.cwd(), "src", "contents", "posts");
 
@@ -43,7 +47,7 @@ function readAllRawPosts(): PostMeta[] {
     });
 }
 
-// 리스트 페이지
+// // 리스트 페이지
 export function getAllPostsMeta(): PostMeta[] {
   return readAllRawPosts().sort((a, b) => (a.date < b.date ? 1 : -1));
 }
@@ -55,7 +59,6 @@ export function getAllSlugs(): string[] {
   return readAllRawPosts().map((post) => post.slug);
 }
 
-// 디테일 페이지  사용
 export async function getPostBySlug(slug: string): Promise<PostData> {
   const posts = readAllRawPosts();
 
@@ -69,10 +72,18 @@ export async function getPostBySlug(slug: string): Promise<PostData> {
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { content } = matter(fileContents);
 
-  const processedContent = await remark()
-    .use(html, { sanitize: false })
-    .process(content);
-  const contentHtml = processedContent.toString();
+  const processor = unified()
+    .use(remarkParse)
+    .use(remarkGfm)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypePrettyCode, {
+      theme: "github-dark",
+      keepBackground: true,
+      defaultLang: "txt",
+    })
+    .use(rehypeStringify, { allowDangerousHtml: true });
+
+  const contentHtml = String(await processor.process(content));
 
   return {
     slug: meta.slug,

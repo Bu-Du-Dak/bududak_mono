@@ -52,8 +52,26 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: ${({ theme }) => theme.typography.weights.regular};
   }
   html { font-size: 62.5%; } 
+
+  pre {
+    margin: 1.25rem 0;
+    padding: 1.6rem;
+    border-radius: 1.2rem;
+    overflow-x: auto;
+    line-height: 1.6;
+
+  box-shadow:
+    0 1rem 2.5rem rgba(0, 0, 0, 0.18),
+    0 .2rem .8rem rgba(0, 0, 0, 0.12);
+  border: .1rem solid rgba(255, 255, 255, 0.08);
+  }
+
+  pre code {
+    font-size: 1.6rem;
+    white-space: pre;
+  }
   
   ::selection{
-    background: rgba(76, 155, 255, 0.25);
+    background: rgba(97, 217, 253, 0.77);
   }
 `;

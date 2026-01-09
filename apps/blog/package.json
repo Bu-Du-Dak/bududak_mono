@@ -16,8 +16,15 @@
     "next": "^16.0.7",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
+    "rehype-pretty-code": "^0.14.1",
+    "rehype-stringify": "^10.0.1",
     "remark": "^15.0.1",
-    "remark-html": "^16.0.1"
+    "remark-gfm": "^4.0.1",
+    "remark-html": "^16.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
+    "shiki": "^3.21.0",
+    "unified": "^11.0.5"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
