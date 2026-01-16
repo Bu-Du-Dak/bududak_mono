@@ -39,7 +39,8 @@ const Wrapper = styled.div`
 `;
 const ResumeDescription = styled.div`
   ${media.lt("tablet")} {
-    padding: 0 0 0 2rem;
-    border-left: ${({ theme }) => `0.3rem solid ${theme.colors.secondary}`};
+    /* padding: 0 0 0 1rem; */
+    /* border-left: ${({ theme }) =>
+      `0.3rem solid ${theme.colors.secondary}`}; */
   }
 `;

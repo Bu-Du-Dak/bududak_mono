@@ -10,15 +10,17 @@ type InfoPropsType = {
   duration?: string;
   subTitle?: string;
   description?: string;
+  sticky?: boolean;
 };
 export default function ResumeInfo({
   title,
   duration,
   subTitle,
   description,
+  sticky = true,
 }: InfoPropsType) {
   return (
-    <StickyBox>
+    <StickyBox sticky={sticky}>
       <Wrapper>
         <Heading level={3} style={{ marginBottom: "1rem" }}>
           {title}
@@ -38,6 +40,8 @@ const Wrapper = styled.div`
   width: 20rem;
   ${media.lt("tablet")} {
     width: 100%;
+    padding: 0 0 0 1.6rem;
+    border-left: ${({ theme }) => `0.3rem solid ${theme.colors.secondary}`};
   }
 `;
 const Duration = styled.time`
