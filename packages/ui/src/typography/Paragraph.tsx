@@ -19,12 +19,13 @@ const StyledParagraph = styled.p<{
   $color?: string;
   $fontWeight?: string | number;
 }>`
-  word-break: break-all;
+  word-break: keep-all;
   overflow-wrap: break-word;
   color: ${({ $color, theme }) => $color ?? theme.colors.text};
   font-weight: ${({ $fontWeight, theme }) =>
     $fontWeight ?? theme.typography.weights.regular};
   font-size: ${({ theme }) => theme.typography.sizes.md};
+  line-height: 1.6;
   ${media.lt("tablet")} {
     font-size: ${({ theme }) => theme.typography.sizes.sm};
   }

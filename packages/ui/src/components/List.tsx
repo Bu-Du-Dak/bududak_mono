@@ -13,7 +13,6 @@ export function ListItem({ children, ...rest }: ListItemProps) {
 const Ul = styled.ul`
   padding: 1.2rem 1.6rem;
   list-style: none;
-  /* list-style-type: disc; */
 `;
 const Li = styled.li`
   word-break: keep-all;
@@ -24,15 +23,13 @@ const Li = styled.li`
   ${media.lt("tablet")} {
     font-size: ${({ theme }) => theme.typography.sizes.sm};
   }
-  // 커스텀 마커 테스트
+
   position: relative;
   &::before {
-    /* content: "•"; */
     content: "";
     position: absolute;
     left: -1rem;
-    /* top: 0.2rem; */
-    top: 1.2rem;
+    top: 1rem;
     font-size: ${({ theme }) => theme.typography.sizes.sm};
     color: ${({ theme }) => theme.colors.primary};
     width: 0.5rem;
@@ -46,8 +43,4 @@ const Li = styled.li`
     border-radius: 15%;
     background: ${({ theme }) => theme.colors.primary};
   }
-  /* &::marker {
-    color: ${({ theme }) => theme.colors.primary};
-    font-size: ${({ theme }) => theme.typography.sizes.xs};
-  } */
 `;

@@ -57,7 +57,9 @@ const Bar = styled.div`
   z-index: 4;
 `;
 
-const Percent = styled.div<{ $progress: number }>`
+const Percent = styled.div.attrs<{ $progress: number }>((props) => ({
+  style: { transform: `scaleX(${props.$progress / 100})` },
+}))<{ $progress: number }>`
   height: 100%;
   background: linear-gradient(
     90deg,
@@ -66,6 +68,5 @@ const Percent = styled.div<{ $progress: number }>`
     ${({ theme }) => theme.colors.primary} 100%
   );
   transform-origin: left center;
-  transform: ${({ $progress }) => `scaleX(${$progress / 100})`};
   transition: transform 140ms ease-out;
 `;

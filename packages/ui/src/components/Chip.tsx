@@ -13,7 +13,8 @@ const CustomChip = styled.div<{ $color?: string }>`
   width: fit-content;
   text-align: center;
   font-size: ${({ theme }) => theme.typography.sizes.xs};
-  color: ${({ theme, $color }) => ($color ? $color : theme.colors.border)};
+  color: ${({ theme, $color }) =>
+    $color ? $color : theme.colors.textSecondary};
   padding: 0.25rem 1rem;
   border-radius: 2rem;
   border-width: 0.1rem;
