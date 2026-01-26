@@ -6,8 +6,12 @@ export default function ProfileContents() {
     <Container>
       <FlipProfile frontSrc="/cartoonProfile.png" backSrc="/profile.jpg" />
       <Intro>
-        저저저저저저저 으으으으으으으 느느느느느는 이이잉 럴러러러
-        삿사사삿람마마맘 임미미밈니니니니다다다
+        개발자로서 기술보다 사용자에게 전달되는 경험의 완성도를 중요하게
+        생각합니다.
+        <br />
+        복잡한 요구사항을 구조화해 책임 있는 선택으로 더 나은 서비스를 만들고,
+        <br />
+        팀과 함께 성장하는 개발자가 되고자 합니다.
       </Intro>
     </Container>
   );
@@ -21,6 +25,5 @@ const Container = styled.div`
   }
 `;
 const Intro = styled(Paragraph)`
-  max-width: 43rem;
-  line-height: 2.5rem;
+  line-height: 3rem;
 `;

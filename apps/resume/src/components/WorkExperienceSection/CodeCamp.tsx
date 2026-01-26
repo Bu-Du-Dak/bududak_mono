@@ -1,4 +1,3 @@
-"use client";
 import { List, ListItem } from "@repo/ui/components/List";
 
 import Heading from "@repo/ui/typography/Heading";
@@ -9,6 +8,7 @@ import {
   ResumeDescriptionItem,
 } from "../commons/commons";
 import { Chip } from "@repo/ui/components/Chip";
+import { CODE_EDITOR_STACKS, DING_CO_STACKS } from "../../constants";
 
 export default function CodeCamp() {
   return (
@@ -43,16 +43,9 @@ export default function CodeCamp() {
           </ListItem>
         </List>
         <ChipsWrapper>
-          <Chip>TypeScript</Chip>
-          <Chip>Next.js</Chip>
-          <Chip>Emotion</Chip>
-          <Chip>RestAPI</Chip>
-          <Chip>Axios</Chip>
-          <Chip>AWS EC2</Chip>
-          <Chip>Monaco Editor</Chip>
-          <Chip>Socket IO</Chip>
-          <Chip>AgoraRTC</Chip>
-          <Chip>Vimeo</Chip>
+          {CODE_EDITOR_STACKS.map((label) => (
+            <Chip key={label}>{label}</Chip>
+          ))}
         </ChipsWrapper>
       </ResumeDescriptionItem>
 
@@ -84,18 +77,9 @@ export default function CodeCamp() {
           </ListItem>
         </List>
         <ChipsWrapper>
-          <Chip>TypeScript</Chip>
-          <Chip>Next.js</Chip>
-          <Chip>Recoil</Chip>
-          <Chip>Emotion</Chip>
-          <Chip>Antd</Chip>
-          <Chip>Material UI</Chip>
-          <Chip>GraphQL</Chip>
-          <Chip>Apollo Client</Chip>
-          <Chip>AWS EC2</Chip>
-          <Chip>AWS S3</Chip>
-          <Chip>Toast UI Editor</Chip>
-          <Chip>Vimeo</Chip>
+          {DING_CO_STACKS.map((label) => (
+            <Chip key={label}>{label}</Chip>
+          ))}
         </ChipsWrapper>
       </ResumeDescriptionItem>
     </ResumeDescriptionContainer>

@@ -24,6 +24,7 @@ export type AppTheme = {
   colors: {
     bg: string;
     text: string;
+    textSecondary: string;
     border: string;
     primary: string;
     secondary: string;
@@ -39,7 +40,8 @@ export const lightTheme: AppTheme = {
   colors: {
     bg: "#F7F7F8",
     text: "#1C1C1C",
-    border: "#585858",
+    textSecondary: "#52525B",
+    border: "#C9CBD3",
     primary: "#2563EB",
     secondary: "#1E40AF",
     tertiary: "#6B7280",
@@ -54,7 +56,8 @@ export const darkTheme: AppTheme = {
   colors: {
     bg: "#232327",
     text: "#E6E6E6",
-    border: "#D9D9D9",
+    textSecondary: "#A1A1AA",
+    border: "#3A3A42",
     primary: "#6EC6FF",
     secondary: "#4C9BFF",
     tertiary: "#BEBEBE",
