@@ -31,7 +31,7 @@ export default function ResumeInfo({
           </Paragraph>
         )}
         <Paragraph style={{ marginBottom: "1rem" }}>{subTitle}</Paragraph>
-        <Paragraph>{description}</Paragraph>
+        <Description>{description}</Description>
       </Wrapper>
     </StickyBox>
   );
@@ -50,4 +50,7 @@ const Duration = styled.time`
   ${media.lt("tablet")} {
     font-size: ${({ theme }) => theme.typography.sizes.xs};
   }
+`;
+const Description = styled(Paragraph)`
+  color: ${({ theme }) => theme.colors.textSecondary};
 `;

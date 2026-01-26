@@ -1,4 +1,3 @@
-"use client";
 import { List, ListItem } from "@repo/ui/components/List";
 
 import Heading from "@repo/ui/typography/Heading";
@@ -9,6 +8,7 @@ import {
   ResumeDescriptionItem,
 } from "../commons/commons";
 import { Chip } from "@repo/ui/components/Chip";
+import { NEW_BIZ_START_STACKS } from "../../constants";
 
 export default function NewBizStart() {
   return (
@@ -30,17 +30,9 @@ export default function NewBizStart() {
           </ListItem>
         </List>
         <ChipsWrapper>
-          <Chip>TypeScript</Chip>
-          <Chip>Next.js</Chip>
-          <Chip>React Context</Chip>
-          <Chip>Emotion</Chip>
-          <Chip>Antd</Chip>
-          <Chip>GraphQL</Chip>
-          <Chip>Apollo Client</Chip>
-          <Chip>AWS EC2</Chip>
-          <Chip>AWS S3</Chip>
-          <Chip>Toast UI Editor</Chip>
-          <Chip>Vimeo</Chip>
+          {NEW_BIZ_START_STACKS.map((label) => (
+            <Chip key={label}>{label}</Chip>
+          ))}
         </ChipsWrapper>
       </ResumeDescriptionItem>
     </ResumeDescriptionContainer>
