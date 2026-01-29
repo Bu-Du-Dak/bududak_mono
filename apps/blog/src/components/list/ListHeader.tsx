@@ -16,11 +16,13 @@ export default function ListHeader() {
         <ThemeToggle />
       </Row>
       <Description>
-        <Paragraph color={theme.colors.border}>
+        <Paragraph color={theme.colors.textSecondary}>
           Simple Notes for Complex Ideas by
         </Paragraph>
         <Auth level={2}>
-          <Link href={""}>BuDuDak</Link>
+          <Link href={"https://bududak.com"} target="_blank">
+            BuDuDak
+          </Link>
         </Auth>
       </Description>
     </Wrapper>
