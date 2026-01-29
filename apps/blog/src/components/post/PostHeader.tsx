@@ -59,5 +59,5 @@ const Title = styled(Heading)`
 `;
 const Date = styled(Paragraph)`
   margin: 1.6rem 0;
-  color: ${({ theme }) => theme.colors.border};
+  color: ${({ theme }) => theme.colors.textSecondary};
 `;

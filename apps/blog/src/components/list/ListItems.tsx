@@ -53,5 +53,5 @@ const Title = styled.div`
 `;
 const Info = styled.span`
   font-size: ${({ theme }) => theme.typography.sizes.sm};
-  color: ${({ theme }) => theme.colors.border};
+  color: ${({ theme }) => theme.colors.textSecondary};
 `;
