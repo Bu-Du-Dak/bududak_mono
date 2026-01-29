@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "BuDuDak's Dev Notes",
   description: "Simple Notes for Complex Ideas",
   metadataBase: new URL("https://blog.bududak.com"),
-  applicationName: "BuDuDak",
+  applicationName: "BuDuDak's Dev Notes",
   generator: "Next.js",
   authors: [{ name: "BuDuDak" }],
   creator: "BuDuDak",
