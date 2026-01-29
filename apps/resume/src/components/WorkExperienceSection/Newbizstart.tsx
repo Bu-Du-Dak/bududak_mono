@@ -1,5 +1,4 @@
 import { List, ListItem } from "@repo/ui/components/List";
-
 import Heading from "@repo/ui/typography/Heading";
 import Paragraph from "@repo/ui/typography/Paragraph";
 import {
@@ -14,19 +13,25 @@ export default function NewBizStart() {
   return (
     <ResumeDescriptionContainer>
       <ResumeDescriptionItem>
-        <Heading level={3}>문제의 원인 파악을 바탕으로 해결합니다.</Heading>
+        <Heading level={3}>온라인 부트캠프 플랫폼</Heading>
         <Paragraph>
-          코드캠프에서 오전에는 메인 강사님을 보조하는 역할로 수강생들의 문제
-          해결을 돕고, 오후에는 온라인 부트캠프 플랫폼 서비스를 개발하였습니다.
+          오프라인 코딩 부트캠프 운영을 지원하며, 온라인 부트캠프 플랫폼으로
+          확장하는 과정의 프론트엔드 개발을 담당했습니다. 운영 환경에서 발생하는
+          문제를 빠르게 정리하고 개선으로 연결했습니다.
         </Paragraph>
         <List>
           <ListItem>
-            에러 발생 시 상황을 정리해 원인을 파악하고 해결, 동일한 에러의
-            재발을 방지하기 위해 수강생들과 공유
+            수강생의 에러 상황을 재현·정리해 원인을 파악하고 해결 방법을 공유해
+            동일 이슈의 반복 발생을 줄였습니다.
           </ListItem>
           <ListItem>
-            에러 발생 시 상황을 정리해 원인을 파악하고 해결, 동일한 에러의
-            재발을 방지하기 위해 수강생들과 공유
+            학습 흐름을 방해하는 UI·UX 문제를 정리해 개선하며 온라인 학습 경험을
+            안정화했습니다.
+          </ListItem>
+          <ListItem>
+            오프라인 중심 운영 흐름을 온라인 서비스로 전환하는 과정에서 강의
+            콘텐츠와 학습 도구가 자연스럽게 연결되도록 화면과 기능을
+            구성했습니다.
           </ListItem>
         </List>
         <ChipsWrapper>
