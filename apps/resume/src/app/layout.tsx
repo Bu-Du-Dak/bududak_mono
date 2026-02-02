@@ -45,7 +45,6 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     creator: "@BuDuDak",
-    //! 이미지 뭐넣지
     images: [""],
   },
   alternates: {
