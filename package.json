@@ -13,6 +13,7 @@
     "check-types": "turbo run check-types",
     "issue": "node scripts/github/createIssue.mjs",
     "pr": "node scripts/github/createPullRequest.mjs",
+    "pr:prod": "node scripts/github/createMainPullRequest.mjs",
     "sync": "node scripts/github/syncBranch.mjs"
   },
   "devDependencies": {
