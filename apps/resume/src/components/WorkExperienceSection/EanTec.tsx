@@ -20,8 +20,9 @@ export default function EanTec() {
         <Heading level={3}>Reable Homepage</Heading>
         <Paragraph>
           공식 홈페이지와 블로그 기능을 개발하며, 콘텐츠 작성 경험을 위한 Tiptap
-          기반 에디터 기능을 확장했습니다. 운영 과정에서 발생하는 리소스 누수
-          문제를 정리하고 자동화로 관리 비용을 줄였습니다.
+          기반 에디터 기능을 확장했습니다. NestJS 기반 백엔드까지 포함해 기능
+          단위로 구현했으며, 운영 과정에서 발생하는 리소스 누수 문제를 정리하고
+          자동화로 관리 비용을 줄였습니다.
         </Paragraph>
         <List>
           <ListItem>
@@ -39,8 +40,8 @@ export default function EanTec() {
           </ListItem>
           <ListItem>
             게시글 수정 시 기존 이미지가 S3에 잔존하는 문제를 파악하고,
-            게시글-이미지 관계를 기준으로 미사용 이미지를 판별할 수 있도록
-            구조를 설계했습니다.
+            게시글-이미지 관계를 기준으로 미사용 이미지를 판별·정리하는 로직을
+            구현했습니다.
           </ListItem>
           <ListItem>
             Lambda 스케줄러로 월 1회 미사용 이미지를 자동 삭제하도록 구성해
