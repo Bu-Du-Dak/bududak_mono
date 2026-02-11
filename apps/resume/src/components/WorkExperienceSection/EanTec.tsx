@@ -58,9 +58,10 @@ export default function EanTec() {
       <ResumeDescriptionItem>
         <Heading level={3}>SAVEE</Heading>
         <Paragraph>
-          콘텐츠 운영 과정에서 데이터 정합성과 관리 편의성을 높이기 위해,
-          수정·삭제 흐름의 예외 케이스를 정리하고 운영 이슈가 재발하지 않도록
-          개선했습니다.
+          건물 단위 에너지 사용량을 모니터링하고 전기·EHP 설비를 제어할 수 있는
+          에너지 운영 서비스(SAVEE)를 개발했습니다. 콘텐츠 운영 과정에서 데이터
+          정합성과 관리 편의성을 높이기 위해, 수정·삭제 흐름의 예외 케이스를
+          정리하고 운영 이슈가 재발하지 않도록 개선했습니다.
         </Paragraph>
         <List>
           <ListItem>
@@ -82,8 +83,10 @@ export default function EanTec() {
       <ResumeDescriptionItem>
         <Heading level={3}>NZT</Heading>
         <Paragraph>
-          복잡한 연산과 다수의 그래프로 초기 로딩이 길었던 레거시 서비스를
-          분석하고, Next.js 기반 SSR 전환과 성능 개선을 담당했습니다.
+          건물의 탄소 배출량을 모니터링하고 감축량 산정 및 리포팅을 지원하는
+          탄소관리 서비스(NZT)를 개발했습니다. 복잡한 연산과 다수의 그래프로
+          초기 로딩이 길었던 레거시 서비스를 분석하고, Next.js 기반 SSR 전환과
+          성능 개선을 담당했습니다.
         </Paragraph>
         <List>
           <ListItem>

@@ -7,7 +7,7 @@ const URL = `${API_BASE}/repos/${OWNER_NAME}/${REPO_NAME}`;
 
 function ensureBranchExists(branch) {
   sh(
-    `git show-ref --verify --quiet refs/heads/${branch} || git fetch origin ${branch}:${branch}`
+    `git show-ref --verify --quiet refs/heads/${branch} || git fetch origin ${branch}:${branch}`,
   );
 }
 
@@ -31,9 +31,9 @@ function ensurePushed(branch) {
 async function findExistingPR({ head, base }) {
   const res = await fetch(
     `${URL}/pulls?state=open&base=${encodeURIComponent(base)}&head=${encodeURIComponent(
-      `${OWNER_NAME}:${head}`
+      `${OWNER_NAME}:${head}`,
     )}`,
-    { headers: authHeaders }
+    { headers: authHeaders },
   );
   if (!res.ok) return null;
   const data = await res.json();
@@ -49,7 +49,7 @@ async function createPR({ head, base, title, body }) {
   const data = await res.json();
   if (!res.ok) {
     throw new Error(
-      `PR create failed: ${res.status} ${res.statusText} ${JSON.stringify(data)}`
+      `PR create failed: ${res.status} ${res.statusText} ${JSON.stringify(data)}`,
     );
   }
   return data;
@@ -76,12 +76,7 @@ function defaultTitle(base, head) {
 }
 
 function defaultBody(base, head) {
-  return [
-    `Automated PR to merge \`${head}\` into \`${base}\`.`,
-    "",
-    "- [ ] Verify CI green",
-    "- [ ] Verify deploy & smoke test",
-  ].join("\n");
+  return [`Automated PR to merge \`${head}\` into \`${base}\`.`].join("\n");
 }
 
 async function main() {
@@ -106,7 +101,7 @@ async function main() {
   const existing = await findExistingPR({ head, base });
   if (existing) {
     console.log(
-      `✅ 이미 열린 PR이 있어요: ${existing.html_url} (#${existing.number})`
+      `✅ 이미 열린 PR이 있어요: ${existing.html_url} (#${existing.number})`,
     );
     openInBrowser(existing.html_url);
     return;
