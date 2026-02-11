@@ -23,7 +23,7 @@ export default function EducationAchievementContents() {
         sticky={false}
       />
       <ResumeInfo
-        title="대학교"
+        title="우송대학교"
         duration="2012.03 ~ 2020.08"
         subTitle="국제경영학부 전략경영전공"
         sticky={false}
