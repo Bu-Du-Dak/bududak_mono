@@ -36,14 +36,19 @@ export const metadata: Metadata = {
     url: "https://blog.bududak.com",
     images: [
       //! 이미지 뭐넣지
-      { url: "", width: 1200, height: 630, alt: "BuDuDak's Dev Notes" },
+      {
+        url: "/favicons/favicon-128x128.png",
+        width: 1200,
+        height: 630,
+        alt: "BuDuDak's Dev Notes",
+      },
     ],
   },
   twitter: {
     card: "summary_large_image",
     creator: "@BuDuDak",
     //! 이미지 뭐넣지
-    images: [""],
+    images: ["/favicons/favicon-128x128.png"],
   },
   alternates: {
     languages: {
