@@ -39,13 +39,18 @@ export const metadata: Metadata = {
     url: "https://bududak.com",
     images: [
       //! 이미지 뭐넣지
-      { url: "", width: 1200, height: 630, alt: "홍재훈 | Frontend Engineer" },
+      {
+        url: "/favicons/favicon-128x128.png",
+        width: 1200,
+        height: 630,
+        alt: "홍재훈 | Frontend Engineer",
+      },
     ],
   },
   twitter: {
     card: "summary_large_image",
     creator: "@BuDuDak",
-    images: [""],
+    images: ["/favicons/favicon-128x128.png"],
   },
   alternates: {
     languages: {
