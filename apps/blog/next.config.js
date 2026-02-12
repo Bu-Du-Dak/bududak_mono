@@ -3,9 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   compiler: { styledComponents: true },
   transpilePackages: ["@repo/ui"],
-  experimental: {
-    htmlLimitedBots: /.*/,
-  },
+  htmlLimitedBots: /.*/,
 };
 
 export default nextConfig;
