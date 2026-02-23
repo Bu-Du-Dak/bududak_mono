@@ -49,7 +49,7 @@ const Item = styled.li`
 const Title = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 0.8rem;
 `;
 const Info = styled.span`
   font-size: ${({ theme }) => theme.typography.sizes.sm};
