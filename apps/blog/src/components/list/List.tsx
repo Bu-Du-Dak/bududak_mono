@@ -6,7 +6,7 @@ import ResponsiveListWrapper from "./ResponsiveListWrapper";
 
 export default async function List({ category }: { category?: string }) {
   const posts = getAllPostsMeta();
-  const categories = getAllPostCategories();
+  const categories = Array.from(new Set(getAllPostCategories())).sort();
 
   const filteredPosts = category
     ? posts.filter((post) => post.category === category)

@@ -56,6 +56,7 @@ const CustomBackButton = styled.button`
 `;
 const Title = styled(Heading)`
   max-width: 100%;
+  margin-top: 1.2rem;
 `;
 const Date = styled(Paragraph)`
   margin: 1.6rem 0;
