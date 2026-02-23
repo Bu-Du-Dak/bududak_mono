@@ -28,7 +28,8 @@ export default function PostNav() {
     if (!article) return;
 
     const elements = Array.from(
-      article.querySelectorAll("h2, h3, h4")
+      article.querySelectorAll("h2, h3, h4"),
+      // article.querySelectorAll("h2, h3"),
     ) as HTMLHeadingElement[];
 
     if (!elements.length) return;
@@ -59,7 +60,7 @@ export default function PostNav() {
           .sort(
             (a, b) =>
               (a.target as HTMLElement).offsetTop -
-              (b.target as HTMLElement).offsetTop
+              (b.target as HTMLElement).offsetTop,
           );
 
         if (visible[0]) {
@@ -69,10 +70,10 @@ export default function PostNav() {
       },
       {
         root: null, // 윈도우 화면 기준
-        // rootMargin: "0px 0px -85% 0px", // 화면 상단 15% 내에 타겟이 들어오면 반영 시작
-        rootMargin: "0px 0px -70% 0px", // 더 안정적인거같은데
+        rootMargin: "0px 0px -85% 0px", // 화면 상단 15% 내에 타겟이 들어오면 반영 시작
+        // rootMargin: "0px 0px -70% 0px", // 더 안정적인거같은데
         threshold: [0, 1.0],
-      }
+      },
     );
 
     elements.map((el) => observer.observe(el));
@@ -118,7 +119,7 @@ export default function PostNav() {
 
 const Nav = styled.nav`
   align-self: flex-start;
-  top: 10rem;
+  top: 5rem;
   max-height: calc(100vh - 10rem);
   position: sticky;
   padding-left: 1.2rem;
