@@ -30,7 +30,9 @@ const Contents = styled.section`
   p {
     margin: 1.2rem 0;
   }
-
+  strong {
+    font-weight: ${({ theme }) => theme.typography.weights.bold};
+  }
   h2,
   h3,
   h4 {
