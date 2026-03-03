@@ -23,8 +23,13 @@ export default function CategoryList({
       </Title>
       <List>
         {categories.map((category) => {
-          const isSelected = selected === category;
-          const href = isSelected ? "/" : `/category/${category}`;
+          const decodedSelected = selected
+            ? decodeURIComponent(selected)
+            : undefined;
+          const isSelected = decodedSelected === category;
+          const href = isSelected
+            ? "/"
+            : `/category/${encodeURIComponent(category ?? "")}`;
           return (
             <Item key={category}>
               <Link href={href}>

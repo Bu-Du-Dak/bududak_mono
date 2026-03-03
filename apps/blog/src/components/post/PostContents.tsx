@@ -14,6 +14,7 @@ const Article = styled.article`
   max-width: 65rem;
   width: 100%;
   margin: 0 auto;
+  padding-bottom: 40vh;
 `;
 
 const Contents = styled.section`
