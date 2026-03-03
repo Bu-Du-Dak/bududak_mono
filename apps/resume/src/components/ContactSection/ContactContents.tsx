@@ -9,6 +9,9 @@ export default function ContactContents() {
           <Anchor href="https://github.com/Bu-Du-Dak">Github</Anchor>
         </ListItem>
         <ListItem>
+          <Anchor href="https://blog.bududak.com">Blog</Anchor>
+        </ListItem>
+        <ListItem>
           <Anchor href="mailto:guri930219@gmail.com">Email</Anchor>
         </ListItem>
       </List>
