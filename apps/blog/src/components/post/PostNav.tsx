@@ -56,23 +56,19 @@ export default function PostNav() {
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
-          .filter((entry) => entry.isIntersecting)
+          .filter((e) => e.isIntersecting)
           .sort(
             (a, b) =>
-              (a.target as HTMLElement).offsetTop -
-              (b.target as HTMLElement).offsetTop,
+              (b.target as HTMLElement).getBoundingClientRect().top -
+              (a.target as HTMLElement).getBoundingClientRect().top,
           );
 
-        if (visible[0]) {
-          const target = visible[0].target as HTMLElement;
-          setActiveId(target.id);
-        }
+        if (visible[0]) setActiveId((visible[0].target as HTMLElement).id);
       },
       {
-        root: null, // 윈도우 화면 기준
-        rootMargin: "0px 0px -85% 0px", // 화면 상단 15% 내에 타겟이 들어오면 반영 시작
-        // rootMargin: "0px 0px -70% 0px", // 더 안정적인거같은데
-        threshold: [0, 1.0],
+        root: null,
+        rootMargin: "0px 0px -85% 0px",
+        threshold: 0,
       },
     );
 
@@ -95,7 +91,7 @@ export default function PostNav() {
 
   return (
     <Nav aria-label="글 목차">
-      <ListTitle>목차</ListTitle>
+      {/* <ListTitle>목차</ListTitle> */}
       <ul>
         {headings.map((item) => {
           const isActive = item.id === activeId;
@@ -120,10 +116,13 @@ export default function PostNav() {
 const Nav = styled.nav`
   align-self: flex-start;
   top: 5rem;
+  width: 23rem;
   max-height: calc(100vh - 10rem);
+  overflow-y: auto;
   position: sticky;
   padding-left: 1.2rem;
   border-left: ${({ theme }) => `0.2rem solid ${theme.colors.border}`};
+  flex-shrink: 0;
   ${media.lt("tablet")} {
     display: none;
   }

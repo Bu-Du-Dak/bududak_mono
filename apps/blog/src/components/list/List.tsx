@@ -8,14 +8,18 @@ export default async function List({ category }: { category?: string }) {
   const posts = getAllPostsMeta();
   const categories = Array.from(new Set(getAllPostCategories())).sort();
 
-  const filteredPosts = category
-    ? posts.filter((post) => post.category === category)
+  const normalizedCategory = category
+    ? decodeURIComponent(category)
+    : undefined;
+
+  const filteredPosts = normalizedCategory
+    ? posts.filter((post) => post.category === normalizedCategory)
     : posts;
 
   return (
     <ResponsiveListWrapper>
       <ListItems posts={filteredPosts} />
-      <CategoryList categories={categories} selected={category} />
+      <CategoryList categories={categories} selected={normalizedCategory} />
     </ResponsiveListWrapper>
   );
 }
