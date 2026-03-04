@@ -3,19 +3,19 @@ import userEvent from "@testing-library/user-event";
 import Button from "../components/Button";
 import { renderWithTheme, testTheme } from "./render";
 
-test("children 텍스트를 렌더링한다", () => {
+test("children 텍스트 렌더", () => {
   renderWithTheme(<Button>확인</Button>);
 
   expect(screen.getByRole("button", { name: "확인" })).toBeInTheDocument();
 });
 
-test("disabled prop이 button에 전달된다", () => {
+test("disabled 처리", () => {
   renderWithTheme(<Button disabled>확인</Button>);
 
   expect(screen.getByRole("button", { name: "확인" })).toBeDisabled();
 });
 
-test("클릭하면 onClick이 호출된다", async () => {
+test("onClick 호출", async () => {
   const user = userEvent.setup();
   const onClick = jest.fn();
 
@@ -25,7 +25,7 @@ test("클릭하면 onClick이 호출된다", async () => {
   expect(onClick).toHaveBeenCalledTimes(1);
 });
 
-test("theme.colors.primary가 background-color로 적용된다", () => {
+test("배경색 primary 확인", () => {
   const { container } = renderWithTheme(<Button>확인</Button>);
 
   expect(container.firstChild).toHaveStyleRule(

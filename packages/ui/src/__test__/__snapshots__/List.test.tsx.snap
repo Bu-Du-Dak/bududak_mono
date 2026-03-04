@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`tablet 이하 font-size sm 1`] = `
+.c0 {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  position: relative;
+}
+
+.c0::before {
+  content: "";
+  position: absolute;
+  left: -1rem;
+  top: 1rem;
+  font-size: 1.4rem;
+  color: #2563EB;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 15%;
+  background: #2563EB;
+}
+
+@media (max-width: 767px) {
+  .c0 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .c0::before {
+    width: 0.4rem;
+    height: 0.4rem;
+    top: 1rem;
+  }
+}
+
+<li
+  class="c0"
+>
+  아이템
+</li>
+`;
