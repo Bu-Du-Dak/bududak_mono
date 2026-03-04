@@ -2,6 +2,7 @@ import { execSync } from "node:child_process";
 import { API_BASE, authHeaders, OWNER_NAME, REPO_NAME } from "../config.mjs";
 import { input as inputPrompt, confirm } from "@inquirer/prompts";
 import { getDefaultBranch, sh } from "../utils.mjs";
+import { runTest } from "./runTest.mjs";
 
 const URL = `${API_BASE}/repos/${OWNER_NAME}/${REPO_NAME}`;
 
@@ -81,15 +82,11 @@ async function main() {
   }
 
   // 테스트 실행
-  console.log("➡️  PR 생성 전 테스트 실행 중... (pnpm test)");
-  try {
-    execSync("pnpm run test", { stdio: "inherit" });
-    console.log("✅ 테스트 통과");
-  } catch (e) {
-    console.error("\n❌ 테스트 실패로 PR 생성을 중단합니다.");
-    console.error("   아래 실패 로그를 확인하고 수정 후 다시 실행해주세요.\n");
-    process.exit(1);
-  }
+  await runTest({
+    message: "PR 생성 전 테스트(pnpm run test)를 실행할까요?",
+    defaultValue: true,
+  });
+
   // 푸시 여부 확인 및 보장
   const doPush = await confirm({
     message: "PR 생성 전 현재 브랜치를 push 할까요?",
