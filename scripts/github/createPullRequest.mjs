@@ -2,6 +2,7 @@ import { execSync } from "node:child_process";
 import { API_BASE, authHeaders, OWNER_NAME, REPO_NAME } from "../config.mjs";
 import { input as inputPrompt, confirm } from "@inquirer/prompts";
 import { getDefaultBranch, sh } from "../utils.mjs";
+import { runTest } from "./runTest.mjs";
 
 const URL = `${API_BASE}/repos/${OWNER_NAME}/${REPO_NAME}`;
 
@@ -47,7 +48,7 @@ async function createPR({ head, base, title, issueNumber }) {
   const data = await res.json();
   if (!res.ok)
     throw new Error(
-      `PR create failed: ${res.status} ${res.statusText} ${JSON.stringify(data)}`
+      `PR create failed: ${res.status} ${res.statusText} ${JSON.stringify(data)}`,
     );
   return data;
 }
@@ -79,6 +80,12 @@ async function main() {
     });
     issueNumber = raw ? Number(raw) : null;
   }
+
+  // 테스트 실행
+  await runTest({
+    message: "PR 생성 전 테스트(pnpm run test)를 실행할까요?",
+    defaultValue: true,
+  });
 
   // 푸시 여부 확인 및 보장
   const doPush = await confirm({

@@ -30,12 +30,11 @@ export default function CategoryList({
           const href = isSelected
             ? "/"
             : `/category/${encodeURIComponent(category ?? "")}`;
+
           return (
             <Item key={category}>
               <Link href={href}>
-                <Chip $color={isSelected ? theme.colors.primary : undefined}>
-                  {category}
-                </Chip>
+                <HoverChip $selected={isSelected}>{category}</HoverChip>
               </Link>
             </Item>
           );
@@ -92,4 +91,12 @@ const List = styled.ul`
 `;
 const Item = styled.li`
   cursor: pointer;
+`;
+const HoverChip = styled(Chip)<{ $selected?: boolean }>`
+  color: ${({ theme, $selected }) =>
+    $selected ? "white" : theme.colors.textSecondary};
+  &:hover {
+    border: ${({ theme }) => `0.1rem solid ${theme.colors.primary}`};
+    color: ${({ theme }) => theme.colors.text};
+  }
 `;
