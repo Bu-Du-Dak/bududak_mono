@@ -8,6 +8,10 @@ exports[`Anchor tablet 이하 font-size(sm) 1`] = `
   cursor: pointer;
 }
 
+.c0:hover {
+  text-decoration: underline;
+}
+
 .c0:visited {
   color: #1E40AF;
 }
