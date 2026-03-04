@@ -47,7 +47,7 @@ async function createPR({ head, base, title, issueNumber }) {
   const data = await res.json();
   if (!res.ok)
     throw new Error(
-      `PR create failed: ${res.status} ${res.statusText} ${JSON.stringify(data)}`
+      `PR create failed: ${res.status} ${res.statusText} ${JSON.stringify(data)}`,
     );
   return data;
 }
@@ -80,6 +80,16 @@ async function main() {
     issueNumber = raw ? Number(raw) : null;
   }
 
+  // 테스트 실행
+  console.log("➡️  PR 생성 전 테스트 실행 중... (pnpm test)");
+  try {
+    execSync("pnpm run test", { stdio: "inherit" });
+    console.log("✅ 테스트 통과");
+  } catch (e) {
+    console.error("\n❌ 테스트 실패로 PR 생성을 중단합니다.");
+    console.error("   아래 실패 로그를 확인하고 수정 후 다시 실행해주세요.\n");
+    process.exit(1);
+  }
   // 푸시 여부 확인 및 보장
   const doPush = await confirm({
     message: "PR 생성 전 현재 브랜치를 push 할까요?",

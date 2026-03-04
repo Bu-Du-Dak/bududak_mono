@@ -17,7 +17,9 @@ const StyledAnchor = styled.a`
   color: ${({ theme }) => theme.colors.primary};
   text-decoration: none;
   cursor: pointer;
-
+  &:hover {
+    text-decoration: underline;
+  }
   &:visited {
     color: ${({ theme }) => theme.colors.secondary};
   }

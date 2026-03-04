@@ -1,0 +1,172 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Anchor tablet 이하 font-size(sm) 1`] = `
+.c0 {
+  font-size: 1.6rem;
+  color: #2563EB;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.c0:hover {
+  text-decoration: underline;
+}
+
+.c0:visited {
+  color: #1E40AF;
+}
+
+@media (max-width: 767px) {
+  .c0 {
+    font-size: 1.4rem;
+  }
+}
+
+<a
+  class="c0"
+  href="https://bududak.com"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  link
+</a>
+`;
+
+exports[`Heading tablet 이하 level별 font-size/line-height 고정 rem 값 1`] = `
+.c0 {
+  word-break: break-all;
+  overflow-wrap: break-word;
+  font-size: 4rem;
+  line-height: 4rem;
+  font-weight: 700;
+}
+
+@media (max-width: 767px) {
+  .c0 {
+    font-size: 3.6rem;
+    line-height: 3.6rem;
+  }
+}
+
+<h1
+  class="c0"
+>
+  H1
+</h1>
+`;
+
+exports[`Heading tablet 이하 level별 font-size/line-height 고정 rem 값 2`] = `
+.c0 {
+  word-break: break-all;
+  overflow-wrap: break-word;
+  font-size: 3.4rem;
+  line-height: 3.4rem;
+  font-weight: 700;
+}
+
+@media (max-width: 767px) {
+
+}
+
+@media (max-width: 767px) {
+  .c0 {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+}
+
+<h2
+  class="c0"
+>
+  H2
+</h2>
+`;
+
+exports[`Heading tablet 이하 level별 font-size/line-height 고정 rem 값 3`] = `
+.c0 {
+  word-break: break-all;
+  overflow-wrap: break-word;
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  font-weight: 600;
+}
+
+@media (max-width: 767px) {
+
+}
+
+@media (max-width: 767px) {
+
+}
+
+@media (max-width: 767px) {
+  .c0 {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+}
+
+<h3
+  class="c0"
+>
+  H3
+</h3>
+`;
+
+exports[`Heading tablet 이하 level별 font-size/line-height 고정 rem 값 4`] = `
+.c0 {
+  word-break: break-all;
+  overflow-wrap: break-word;
+  font-size: 2rem;
+  line-height: 2rem;
+  font-weight: 400;
+}
+
+@media (max-width: 767px) {
+
+}
+
+@media (max-width: 767px) {
+
+}
+
+@media (max-width: 767px) {
+
+}
+
+@media (max-width: 767px) {
+  .c0 {
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+  }
+}
+
+<h4
+  class="c0"
+>
+  H4
+</h4>
+`;
+
+exports[`Paragraph 기본 font-size(md), tablet 이하에서 sm 1`] = `
+.c0 {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  color: #1C1C1C;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 767px) {
+  .c0 {
+    font-size: 1.4rem;
+  }
+}
+
+<p
+  class="c0"
+>
+  size
+</p>
+`;
