@@ -2,6 +2,7 @@ import { execSync } from "node:child_process";
 import { API_BASE, authHeaders, OWNER_NAME, REPO_NAME } from "../config.mjs";
 import { input as inputPrompt, confirm } from "@inquirer/prompts";
 import { sh } from "../utils.mjs";
+import { runTest } from "./runTest.mjs";
 
 const URL = `${API_BASE}/repos/${OWNER_NAME}/${REPO_NAME}`;
 
@@ -90,6 +91,11 @@ async function main() {
   // develop 최신화 + 필요하면 push
   checkout(head);
   pull(head);
+
+  await runTest({
+    message: "prod PR 생성 전 테스트(pnpm run test)를 실행할까요?",
+    defaultValue: true,
+  });
 
   const doPush = await confirm({
     message: `PR 생성 전에 ${head} 브랜치를 origin에 push 할까요?`,
