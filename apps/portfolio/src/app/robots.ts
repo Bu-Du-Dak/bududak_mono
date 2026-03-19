@@ -1,4 +1,4 @@
-const SITE_URL = "https://www.bududak.com";
+const SITE_URL = "https://portfolio.bududak.com";
 
 export default function robots() {
   return {

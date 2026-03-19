@@ -29,14 +29,14 @@ export default function DefaultLayout({
       <HeaderContainer>{headerContent}</HeaderContainer>
       <MainContainer>{children}</MainContainer>
       <FooterContainer>
-        Copyright © {new Date().getFullYear()}
+        Copyright © {new Date().getFullYear()}{" "}
         <Anchor
           href="https://github.com/Bu-Du-Dak"
           target="_blank"
           rel="noreferrer"
         >
           Bu-Du-Dak
-        </Anchor>
+        </Anchor>{" "}
         All rights reserved.
       </FooterContainer>
     </Wrapper>
@@ -77,14 +77,12 @@ const MainContainer = styled.main`
 `;
 
 const FooterContainer = styled.footer`
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  gap: 0.5rem;
   width: 100%;
   margin: 0 auto;
   padding-block: 5rem;
   font-size: ${({ theme }) => theme.typography.sizes.xs};
+  text-align: right;
+  line-height: 1.6;
 `;
 const Anchor = styled.a`
   color: ${({ theme }) => theme.colors.primary};
