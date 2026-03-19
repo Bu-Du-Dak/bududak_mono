@@ -98,6 +98,43 @@ importers:
         specifier: 5.9.2
         version: 5.9.2
 
+  apps/portfolio:
+    dependencies:
+      '@repo/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      next:
+        specifier: ^16.0.7
+        version: 16.0.8(@playwright/test@1.58.2)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
+      react:
+        specifier: ^19.2.1
+        version: 19.2.1
+      react-dom:
+        specifier: ^19.2.1
+        version: 19.2.1(react@19.2.1)
+    devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
+      '@types/node':
+        specifier: ^22.15.3
+        version: 22.19.2
+      '@types/react':
+        specifier: 19.2.2
+        version: 19.2.2
+      '@types/react-dom':
+        specifier: 19.2.2
+        version: 19.2.2(@types/react@19.2.2)
+      eslint:
+        specifier: ^9.34.0
+        version: 9.39.1
+      typescript:
+        specifier: 5.9.2
+        version: 5.9.2
+
   apps/resume:
     dependencies:
       '@repo/ui':
