@@ -4,8 +4,7 @@ import { cookies } from "next/headers";
 import StyledComponentsRegistry from "../components/layout/StyledComponentsRegistry";
 import DefaultLayout from "@repo/ui/layout/DefaultLayout";
 import CustomThemeProvider from "@repo/ui/layout/CustomThemeProvider";
-import ScrollProgressBar from "@repo/ui/layout/ScrollProgressBar";
-import ResumeHeader from "../components/layout/ResumeHeader";
+import PortfolioHeader from "../components/layout/PortfolioHeader";
 
 export const metadata: Metadata = {
   title: "홍재훈 | Portfolio",
@@ -105,13 +104,11 @@ export default async function RootLayout({
       <body>
         <StyledComponentsRegistry>
           <CustomThemeProvider initialMode={mode}>
-            <ScrollProgressBar />
             <DefaultLayout
-              // headerContent={<ResumeHeader />}
-              headerContent={<div></div>}
+              headerContent={<PortfolioHeader />}
               maxWidth={{
-                web: 75,
-                tablet: 75,
+                web: 90,
+                tablet: 90,
                 mobile: "100%",
               }}
             >

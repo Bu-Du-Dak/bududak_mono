@@ -4,11 +4,11 @@ import ThemeToggle from "@repo/ui/themes/themeToggle";
 import Heading from "@repo/ui/typography/Heading";
 import { media } from "../../../../../packages/ui/src/styles/breakPoints";
 
-export default function ResumeHeader() {
+export default function PortfolioHeader() {
   return (
     <Wrapper>
       <Row>
-        <Heading level={1}>더 나은 경험을 만드는 개발자, 홍재훈</Heading>
+        <Heading level={1}>Things I Built</Heading>
         <ThemeToggle />
       </Row>
     </Wrapper>
