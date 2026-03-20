@@ -34,7 +34,8 @@ export default function ListSection({
 const Container = styled.section`
   padding: 5rem 0;
 `;
-const Info = styled.span`
+const Info = styled.div`
+  margin-top: 0.6rem;
   font-size: ${({ theme }) => theme.typography.sizes.sm};
   color: ${({ theme }) => theme.colors.textSecondary};
 `;

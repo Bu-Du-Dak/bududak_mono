@@ -8,7 +8,7 @@ export default function PortfolioHeader() {
   return (
     <Wrapper>
       <Row>
-        <Heading level={1}>Things I Built</Heading>
+        <Heading level={1}>Things I’ve Built</Heading>
         <ThemeToggle />
       </Row>
     </Wrapper>
