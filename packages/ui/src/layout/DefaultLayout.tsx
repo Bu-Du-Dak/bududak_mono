@@ -85,6 +85,7 @@ const FooterContainer = styled.footer`
   line-height: 1.6;
 `;
 const Anchor = styled.a`
+  font-weight: bold;
   color: ${({ theme }) => theme.colors.primary};
   cursor: pointer;
 `;
