@@ -5,12 +5,6 @@ export default function EducationAchievementContents() {
   return (
     <SectionWithTitle title={"Education"}>
       <ResumeInfo
-        title="한국방송통신대학교"
-        duration="2026.03 ~"
-        subTitle="컴퓨터과학과"
-        sticky={false}
-      />
-      <ResumeInfo
         title="코드캠프"
         duration="2021.07 ~ 2021.10"
         subTitle="프론트엔드 2기"
