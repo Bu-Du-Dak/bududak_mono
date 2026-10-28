@@ -8,8 +8,9 @@ import PortfolioHeader from "../components/layout/PortfolioHeader";
 
 export const metadata: Metadata = {
   title: "홍재훈 | Portfolio",
-  description: "프론트엔드 엔지니어 홍재훈의 포트폴리오 입니다.",
-  metadataBase: new URL("https://bududak.com"),
+  description:
+    "프론트엔드 엔지니어 홍재훈의 포트폴리오입니다. 서비스 개발과 운영에서 해결한 문제, 기술 선택과 구현 과정을 소개합니다.",
+  metadataBase: new URL("https://portfolio.bududak.com"),
   applicationName: "홍재훈 | Portfolio",
   generator: "Next.js",
   authors: [{ name: "BuDuDak" }],
@@ -34,9 +35,8 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "홍재훈 | Portfolio",
     locale: "ko_KR",
-    url: "https://bududak.com",
+    url: "https://portfolio.bududak.com",
     images: [
-      //! 이미지 뭐넣지
       {
         url: "/favicons/favicon-128x128.png",
         width: 1200,

@@ -68,7 +68,7 @@ const StyledLink = styled(Link)`
 
 const ImageWrapper = styled.div`
   position: relative;
-  width: 15rem;
+  width: 25rem;
   height: 15rem;
   flex-shrink: 0;
   overflow: hidden;

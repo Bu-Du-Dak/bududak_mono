@@ -6,6 +6,7 @@ export default function Button({ children, ...rest }: ButtonProps) {
 }
 const CustomButton = styled.button`
   background-color: ${({ theme }) => theme.colors.primary};
+  color: #fff;
   font-weight: bold;
   padding: 0.6rem 1.8rem;
   text-align: center;

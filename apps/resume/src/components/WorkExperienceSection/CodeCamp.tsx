@@ -8,37 +8,41 @@ import {
 } from "../commons/commons";
 import { Chip } from "@repo/ui/components/Chip";
 import { CODE_EDITOR_STACKS, DING_CO_STACKS } from "../../constants";
+import Anchor from "@repo/ui/typography/Anchor";
 
 export default function CodeCamp() {
   return (
     <ResumeDescriptionContainer>
       <ResumeDescriptionItem>
-        <Heading level={3}>실시간 협업 코딩 에디터</Heading>
+        <Anchor
+          href="https://portfolio.bududak.com/collaborative-code-editor"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Heading level={3}>실시간 협업 코딩 에디터</Heading>
+        </Anchor>
         <Paragraph>
-          수강생과 멘토가 함께 코드를 작성할 수 있는 실시간 협업 코드 에디터를
-          개발했습니다. 핵심 기능 설계부터 구현까지 전반을 담당했으며, 결과물은
-          구름 에듀에 소스 코드 형태로 판매되었습니다.
+          멘토와 수강생이 같은 코드를 보며 문제를 풀 수 있는 협업 편집기를
+          개발했습니다. 코드 공유와 편집 권한을 구현하고 실행 결과와 음성·영상
+          통화를 연결했습니다.
         </Paragraph>
         <List>
           <ListItem>
-            Socket.IO 기반 동시 편집 기능을 구현해 코드 공유 및 피드백 지연
-            문제를 해결했습니다.
+            Monaco 편집기에 Socket.IO를 연결해 같은 방에서 코드를 공유하도록
+            구현했습니다. 직접 입력한 코드와 서버에서 받은 코드를 구분해
+            재전송을 방지했습니다.
           </ListItem>
           <ListItem>
-            AgoraRTC를 연동해 음성·화상 통신을 지원하고 실시간 소통 환경을
-            구현했습니다.
+            편집 권한에 따라 입력을 허용하거나 잠그고, 키를 누를 때마다 코드를
+            전송하지 않도록 debounce를 적용했습니다.
           </ListItem>
           <ListItem>
-            알고리즘 해설 영상을 에디터 내부에서 바로 확인할 수 있도록 구성해
-            학습 흐름이 끊기지 않도록 개선했습니다.
+            코드 실행·제출 REST API를 연결해 작성한 코드의 실행 결과를
+            편집기에서 확인할 수 있도록 했습니다.
           </ListItem>
           <ListItem>
-            Micro Frontend 구조로 서비스를 분리해 트래픽 증가 상황에서도
-            독립적으로 확장 가능한 구조를 구성했습니다.
-          </ListItem>
-          <ListItem>
-            실행 결과를 실시간으로 확인할 수 있는 콘솔 기능을 추가해 디버깅
-            경험을 개선했습니다.
+            AgoraRTC 클라이언트와 통화 채널을 연결하고, 참가자 이벤트에 맞춰
+            영상과 음성을 표시하거나 정리했습니다.
           </ListItem>
         </List>
         <ChipsWrapper>
@@ -47,33 +51,31 @@ export default function CodeCamp() {
           ))}
         </ChipsWrapper>
       </ResumeDescriptionItem>
-
       <ResumeDescriptionItem>
-        <Heading level={3}>온라인 동영상 강의 플랫폼</Heading>
+        <Anchor
+          href="https://portfolio.bududak.com/online-learning-platform"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Heading level={3}>온라인 강의·부트캠프 학습 플랫폼</Heading>
+        </Anchor>
         <Paragraph>
-          오프라인 강의를 온라인에서도 수강할 수 있도록 동영상 강의 플랫폼을
-          개발했습니다. 결제·시청 사용자 페이지와 영상·수강생 관리 어드민
-          페이지를 중심으로 구현했습니다.
+          수강생이 강의를 듣고 복습하는 화면과 운영자가 강의를 관리하는 화면을
+          개발했습니다. 노트 검색과 첨삭 일정 확인, 강의 자료와 수강시간 관리
+          기능을 개선했습니다.
         </Paragraph>
         <List>
           <ListItem>
-            Toast UI Editor로 강의별 노트 기능을 제공해 수강생이 학습 내용을
-            정리하고 복습할 수 있도록 구성했습니다.
+            강의별·전체 노트 목록에서 필요한 내용을 찾도록 검색 로직을 수정하고,
+            무료 강의 수강 처리를 개선했습니다.
           </ListItem>
           <ListItem>
-            Vimeo API와 Hook으로 진도율을 추적해 학습 현황을 명확히 파악할 수
-            있도록 개선했습니다.
+            운영자가 강의 자료를 등록할 때 발생하는 이미지 처리 오류를
+            수정했습니다. 수강생의 모바일 결제 완료 화면도 일부 개선했습니다.
           </ListItem>
           <ListItem>
-            Lazy Loading을 적용해 상세 페이지 초기 로딩을 개선하고 대용량
-            이미지로 인한 성능 저하를 줄였습니다.
-          </ListItem>
-          <ListItem>
-            결제 상태 기반 Auth Guard를 구현해 비인가 접근을 차단했습니다.
-          </ListItem>
-          <ListItem>
-            페이지 단위 코드 스플리팅을 적용해 초기 진입 시 체감 성능을
-            개선했습니다.
+            운영자의 수강시간 관리 기능을 개발하고, 수강생이 다음 첨삭 일정을
+            확인할 수 있도록 조회 항목과 화면 표시를 보완했습니다.
           </ListItem>
         </List>
         <ChipsWrapper>
