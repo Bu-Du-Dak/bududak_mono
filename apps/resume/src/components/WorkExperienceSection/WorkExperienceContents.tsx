@@ -10,14 +10,14 @@ export default function WorkExperienceContents() {
         title="EAN 테크놀로지"
         subTitle="프론트엔드 개발자"
         duration={"2023.05 ~"}
-        description="제로에너지 건축 솔루션을 제공하는 B2B 서비스 개발과 아키텍처 설계를 리드했습니다."
+        description="에너지·탄소관리 서비스의 모니터링과 보고서 기능을 개발하고, 회사 홈페이지의 콘텐츠 편집과 이미지 파일 관리를 구현했습니다."
         listComponent={<EanTec />}
       />
       <StickyContents
         title="(주) 딩코"
         subTitle="프론트엔드 개발자"
         duration={"2022.05 ~ 2023.04"}
-        description="실시간 코드 편집과 화상 소통이 결합된 학습 플랫폼의 프론트엔드 전반을 담당했습니다."
+        description="실시간 협업 코딩 도구의 코드 동기화와 음성·영상 연결을 구현하고, 수강생·운영자 화면의 학습·관리 기능을 개선했습니다."
         listComponent={<CodeCamp />}
       />
       <StickyContents

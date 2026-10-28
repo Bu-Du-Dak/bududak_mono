@@ -8,11 +8,14 @@ export default function ContactContents() {
         <ListItem>
           <Anchor href="https://github.com/Bu-Du-Dak">Github</Anchor>
         </ListItem>
-        <ListItem>
+        {/* <ListItem>
           <Anchor href="https://blog.bududak.com">Blog</Anchor>
-        </ListItem>
+        </ListItem> */}
         <ListItem>
           <Anchor href="mailto:guri930219@gmail.com">Email</Anchor>
+        </ListItem>
+        <ListItem>
+          <Anchor href="https://portfolio.bududak.com">Portfolio</Anchor>
         </ListItem>
       </List>
     </SectionWithTitle>
