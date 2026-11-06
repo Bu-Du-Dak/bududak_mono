@@ -12,7 +12,12 @@ export default function ListItem({ item }: { item: Item }) {
     <li>
       <StyledLink href={`/${item.id}`}>
         <ImageWrapper>
-          <StyledImage src={item.imgUrl} alt={item.title} fill />
+          <StyledImage
+            src={item.thumbUrl ?? item.imgUrl}
+            alt={item.title}
+            fill
+            sizes="(max-width: 767px) 100vw, 25rem"
+          />
           <Overlay>
             <OverlayTitle level={3}>{item.title}</OverlayTitle>
           </Overlay>

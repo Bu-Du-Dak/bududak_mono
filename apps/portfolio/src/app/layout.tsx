@@ -21,7 +21,6 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    nocache: true,
     googleBot: {
       index: true,
       follow: true,
@@ -38,7 +37,7 @@ export const metadata: Metadata = {
     url: "https://portfolio.bududak.com",
     images: [
       {
-        url: "/favicons/favicon-128x128.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "홍재훈 | Frontend Engineer",
@@ -47,13 +46,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    creator: "@BuDuDak",
-    images: ["/favicons/favicon-128x128.png"],
+    images: ["/og-image.png"],
   },
   alternates: {
-    languages: {
-      "ko-KR": "/ko",
-    },
+    canonical: "/",
   },
   icons: {
     icon: [

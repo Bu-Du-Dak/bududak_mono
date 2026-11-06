@@ -20,6 +20,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${project.title} | 홍재훈 Portfolio`,
       description: project.description,
       url: `https://portfolio.bududak.com/${project.id}`,
+      images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    },
+    alternates: {
+      canonical: `/${project.id}`,
     },
   };
 }
