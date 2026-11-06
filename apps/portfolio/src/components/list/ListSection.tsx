@@ -8,6 +8,7 @@ export type Item = {
   description: string;
   tags: string[];
   imgUrl: string;
+  thumbUrl?: string;
 };
 type ListSectionProps = {
   title: string;

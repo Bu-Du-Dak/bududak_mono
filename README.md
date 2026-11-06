@@ -1,150 +1,65 @@
-# Turborepo starter
+# bududak_mono
 
-This Turborepo starter is maintained by the Turborepo core team.
+프론트엔드 개발자 홍재훈의 이력서·포트폴리오·블로그를 운영하는 Turborepo 모노레포입니다.
+3개의 Next.js 앱이 공통 UI와 ESLint·TypeScript 설정 패키지를 함께 사용합니다.
 
-## Using this example
+| 앱 | 주소 | 설명 |
+|---|---|---|
+| `apps/resume` | https://www.bududak.com | 이력서 (경력, 스킬, 학력) |
+| `apps/portfolio` | https://portfolio.bududak.com | 프로젝트 상세 (문제 → 선택한 방법 → 결과) |
+| `apps/blog` | https://blog.bududak.com | Markdown 기반 개발·학습 노트 |
 
-Run the following command:
+## 기술 스택
+
+- **Framework**: Next.js 16 (App Router), React 19, TypeScript
+- **Styling**: styled-components (공통 테마, 다크 모드)
+- **Blog**: unified · remark · rehype-pretty-code · shiki (Markdown → HTML, 코드 하이라이트)
+- **Test**: Jest · Testing Library (공통 UI), Playwright (블로그 E2E)
+- **Monorepo**: Turborepo, pnpm workspace
+- **Deploy**: Vercel (앱별 프로젝트)
+
+## 구조
+
+```text
+bududak_mono
+├─ apps
+│  ├─ resume       # www.bududak.com
+│  ├─ portfolio    # portfolio.bududak.com (프로젝트 데이터: src/constants/projects.ts)
+│  └─ blog         # blog.bududak.com (글: src/contents/posts, E2E: __e2e__)
+├─ packages
+│  ├─ ui                 # 공통 컴포넌트·타이포그래피·테마·레이아웃 + 단위 테스트
+│  ├─ eslint-config      # 공통 ESLint 설정
+│  └─ typescript-config  # 공통 tsconfig
+└─ scripts/github  # 이슈·브랜치·PR 자동화 스크립트
+```
+
+## 테스트
+
+- **공통 UI 단위 테스트**: `packages/ui`의 Button, Chip, List, Typography 등 24개 (테스트 대상 기준 라인 커버리지 97.7%)
+- **블로그 E2E**: Playwright로 목록 진입, 카테고리 이동, 글 상세 진입, 목차(TOC) 스크롤을 검증
 
 ```sh
-npx create-turbo@latest
+pnpm test                  # 전체 단위 테스트 (turbo)
+pnpm --filter blog e2e     # 블로그 E2E
 ```
 
-## What's inside?
+## 작업 흐름 자동화
 
-This Turborepo includes the following packages/apps:
+GitHub API를 호출하는 Node.js 스크립트로 이슈부터 PR까지의 반복 작업을 줄였습니다.
 
-### Apps and Packages
+| 명령 | 동작 |
+|---|---|
+| `pnpm issue` | 타입(feat/fix 등)과 제목을 입력받아 이슈를 만들고 `issue-#번호` 브랜치로 전환 |
+| `pnpm pr` | **테스트를 먼저 실행**하고, 통과하면 브랜치를 push한 뒤 develop 대상 PR 생성 |
+| `pnpm pr:prod` | 테스트 후 develop → main 배포 PR 생성 |
+| `pnpm sync` | 브랜치 동기화 |
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+`.env`에 GitHub 토큰과 저장소 정보가 필요합니다.
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+## 실행
 
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
-```
-
-You can build a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
-
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
-```
-
-You can develop a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
-
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev --filter=web
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo login
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo link
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
-
-## 💻 환경
-
-pnpm : 9.0.0
-
-## 🚀 실행
-
-```bash
-pnpm i
-pnpm dev
-# resume
-pnpm dev:resume
-# blog
-pnpm dev:blog
+```sh
+pnpm install
+pnpm dev:resume      # 또는 dev:portfolio, dev:blog
+pnpm build           # 전체 빌드 (turbo 캐시)
 ```

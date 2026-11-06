@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "홍재훈 | Frontend Engineer",
   description:
     "사용자 경험을 중심으로 구조적인 문제 해결을 지향하는 프론트엔드 엔지니어 홍재훈입니다.",
-  metadataBase: new URL("https://bududak.com"),
+  metadataBase: new URL("https://www.bududak.com"),
   applicationName: "홍재훈 | Frontend Engineer",
   generator: "Next.js",
   authors: [{ name: "BuDuDak" }],
@@ -22,7 +22,6 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    nocache: true,
     googleBot: {
       index: true,
       follow: true,
@@ -36,11 +35,11 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "홍재훈 | Frontend Engineer",
     locale: "ko_KR",
-    url: "https://bududak.com",
+    url: "https://www.bududak.com",
     images: [
       //! 이미지 뭐넣지
       {
-        url: "/favicons/favicon-128x128.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "홍재훈 | Frontend Engineer",
@@ -49,13 +48,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    creator: "@BuDuDak",
-    images: ["/favicons/favicon-128x128.png"],
+    images: ["/og-image.png"],
   },
   alternates: {
-    languages: {
-      "ko-KR": "/ko",
-    },
+    canonical: "/",
   },
   icons: {
     icon: [
