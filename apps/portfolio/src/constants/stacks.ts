@@ -4,7 +4,9 @@ export const REABLE_HOMEPAGE_STACKS = [
   "Tiptap",
   "NestJS",
   "TypeORM",
+  "PostgreSQL",
   "TanStack Query",
+  "Recharts",
   "Tailwind CSS",
   "AWS S3",
   "Nx",
@@ -17,8 +19,11 @@ export const SAVEE_STACKS = [
   "TanStack Query",
   "React Context",
   "Zustand",
+  "React Hook Form",
+  "Zod",
   "styled-components",
   "Highcharts",
+  "Socket.IO",
   "REST API",
   "GitHub Actions",
 ];
@@ -32,6 +37,8 @@ export const NZT_STACKS = [
   "Zustand",
   "Emotion",
   "Highcharts",
+  "i18next",
+  "GraphQL Codegen",
   "Jest",
   "Testing Library",
 ];
@@ -56,6 +63,8 @@ export const DING_CO_STACKS = [
   "Emotion",
   "Toast UI Editor",
   "Vimeo",
+  "Jenkins",
+  "Docker",
 ];
 
 export const NEW_BIZ_START_STACKS = [

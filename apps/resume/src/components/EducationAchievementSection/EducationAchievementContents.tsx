@@ -3,7 +3,13 @@ import ResumeInfo from "../commons/ResumeInfo";
 
 export default function EducationAchievementContents() {
   return (
-    <SectionWithTitle title={"Education"}>
+    <SectionWithTitle title={"Education & Awards"}>
+      <ResumeInfo
+        title="올해의 사원"
+        duration="2024.12"
+        subTitle="EAN테크놀로지"
+        sticky={false}
+      />
       <ResumeInfo
         title="코드캠프"
         duration="2021.07 ~ 2021.10"
@@ -19,7 +25,7 @@ export default function EducationAchievementContents() {
       <ResumeInfo
         title="우송대학교"
         duration="2012.03 ~ 2020.08"
-        subTitle="국제경영학부 전략경영전공"
+        subTitle="국제경영 전공, 운송물류 부전공"
         sticky={false}
       />
     </SectionWithTitle>
