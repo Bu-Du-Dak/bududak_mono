@@ -6,16 +6,30 @@ import Image from "next/image";
 import { Chip } from "@repo/ui/components/Chip";
 import Link from "next/link";
 import { media } from "../../../../../packages/ui/src/styles/breakPoints";
+import { useAnimatedSrc } from "../../lib/useAnimatedSrc";
 
-export default function ListItem({ item }: { item: Item }) {
+export default function ListItem({
+  item,
+  priority = false,
+}: {
+  item: Item;
+  priority?: boolean;
+}) {
+  const image = useAnimatedSrc(
+    item.thumbUrl ?? item.imgUrl,
+    item.thumbPosterUrl,
+  );
   return (
     <li>
       <StyledLink href={`/${item.id}`}>
         <ImageWrapper>
           <StyledImage
-            src={item.thumbUrl ?? item.imgUrl}
+            ref={image.ref}
+            src={image.src}
+            unoptimized={image.unoptimized}
             alt={item.title}
             fill
+            priority={priority}
             sizes="(max-width: 767px) 100vw, 25rem"
           />
           <Overlay>

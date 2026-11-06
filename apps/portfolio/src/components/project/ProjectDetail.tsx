@@ -10,8 +10,10 @@ import Paragraph from "@repo/ui/typography/Paragraph";
 import type { Project } from "../../constants/projects";
 import Image from "next/image";
 import { media } from "../../../../../packages/ui/src/styles/breakPoints";
+import { useAnimatedSrc } from "../../lib/useAnimatedSrc";
 export default function ProjectDetail({ project }: { project: Project }) {
   const router = useRouter();
+  const image = useAnimatedSrc(project.imgUrl, project.posterUrl);
   return (
     <Container>
       <div>
@@ -21,10 +23,14 @@ export default function ProjectDetail({ project }: { project: Project }) {
         <Section>
           <ImageWrapper>
             <StyledImage
-              src={project.imgUrl}
+              ref={image.ref}
+              src={image.src}
+              unoptimized={image.unoptimized}
               alt={project.title}
               width={800}
               height={400}
+              priority
+              sizes="(max-width: 767px) 100vw, 800px"
             />
           </ImageWrapper>
           <Heading level={2}>{project.title}</Heading>
@@ -48,6 +54,15 @@ export default function ProjectDetail({ project }: { project: Project }) {
                 <ListItem key={paragraph}>{paragraph}</ListItem>
               ))}
             </List>
+            {section.code && (
+              <Figure>
+                <CodeBlock>
+                  <code>{section.code.content}</code>
+                </CodeBlock>
+                <Caption>{section.code.caption}</Caption>
+              </Figure>
+            )}
+            {section.note && <Note>{section.note}</Note>}
           </Section>
         ))}
       </Content>
@@ -94,4 +109,33 @@ const ImageWrapper = styled.div`
 const StyledImage = styled(Image)`
   object-fit: cover;
   transition: transform 0.3s ease;
+`;
+
+const Figure = styled.figure`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin: 0;
+`;
+const CodeBlock = styled.pre`
+  margin: 0;
+  padding: 1.6rem;
+  overflow-x: auto;
+  border: ${({ theme }) => `0.1rem solid ${theme.colors.border}`};
+  border-radius: ${({ theme }) => theme.radius};
+  color: ${({ theme }) => theme.colors.text};
+  font-family: ${({ theme }) => theme.typography.monoFamily};
+  font-size: ${({ theme }) => theme.typography.sizes.sm};
+  line-height: 1.6;
+  white-space: pre;
+  ${media.lt("tablet")} {
+    font-size: ${({ theme }) => theme.typography.sizes.xs};
+  }
+`;
+const Caption = styled.figcaption`
+  font-size: ${({ theme }) => theme.typography.sizes.xs};
+  color: ${({ theme }) => theme.colors.tertiary};
+`;
+const Note = styled(Paragraph)`
+  color: ${({ theme }) => theme.colors.textSecondary};
 `;

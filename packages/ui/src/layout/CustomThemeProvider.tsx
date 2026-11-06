@@ -6,7 +6,7 @@ export default function CustomThemeProvider({
   initialMode,
 }: {
   children: ReactNode;
-  initialMode: "light" | "dark";
+  initialMode?: "light" | "dark";
 }) {
   return (
     <UIThemeProvider initialMode={initialMode}>{children}</UIThemeProvider>

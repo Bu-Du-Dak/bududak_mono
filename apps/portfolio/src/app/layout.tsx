@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
-import { cookies } from "next/headers";
 import StyledComponentsRegistry from "../components/layout/StyledComponentsRegistry";
 import DefaultLayout from "@repo/ui/layout/DefaultLayout";
 import CustomThemeProvider from "@repo/ui/layout/CustomThemeProvider";
+import ThemeInitScript from "@repo/ui/themes/themeInitScript";
 import PortfolioHeader from "../components/layout/PortfolioHeader";
 
 export const metadata: Metadata = {
@@ -88,18 +88,19 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const cookie = await cookies();
-  const mode = (cookie.get("theme")?.value as "light" | "dark") ?? "dark";
   return (
-    <html lang="ko" data-theme={mode}>
+    <html lang="ko" data-theme="dark" suppressHydrationWarning>
+      <head>
+        <ThemeInitScript />
+      </head>
       <body>
         <StyledComponentsRegistry>
-          <CustomThemeProvider initialMode={mode}>
+          <CustomThemeProvider>
             <DefaultLayout
               headerContent={<PortfolioHeader />}
               maxWidth={{
