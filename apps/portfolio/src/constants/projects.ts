@@ -6,7 +6,14 @@ import {
   NZT_STACKS,
 } from "./stacks";
 
-export type ProjectSection = { title: string; paragraphs: string[] };
+export type ProjectSection = {
+  title: string;
+  paragraphs: string[];
+  /** 근거 자료: 축약 코드나 텍스트 도식 */
+  code?: { caption: string; content: string };
+  /** 수치의 측정 방법 */
+  note?: string;
+};
 export type Project = {
   id: string;
   title: string;
@@ -15,6 +22,9 @@ export type Project = {
   description: string;
   imgUrl: string;
   thumbUrl?: string;
+  /** 애니메이션 이미지의 정지 첫 프레임 */
+  posterUrl?: string;
+  thumbPosterUrl?: string;
   tags: string[];
   sections: ProjectSection[];
 };
@@ -29,6 +39,8 @@ export const FEATURED_PROJECTS: Project[] = [
       "멘토와 수강생이 같은 코드를 보며 문제를 푸는 협업 에디터를 한 달 만에 단독으로 개발해 자사 교육 과정에 적용하고 외부 교육 서비스에 판매했습니다.",
     imgUrl: "/algorithm.webp",
     thumbUrl: "/algorithm-thumb.webp",
+    posterUrl: "/algorithm-poster.webp",
+    thumbPosterUrl: "/algorithm-thumb-poster.webp",
     sections: [
       {
         title: "프로젝트 소개",
@@ -43,6 +55,10 @@ export const FEATURED_PROJECTS: Project[] = [
           "여러 사용자가 같은 코드를 편집할 때 충돌을 어떻게 다룰지가 핵심이었습니다. OT·CRDT는 서버 상태 관리와 충돌 해결 비용이 커서 한 달 일정에 맞지 않는다고 판단했습니다.",
           "대신 한 사용자가 입력하는 동안 200ms 동안 편집을 잠그는 소프트 락 방식을 선택했습니다. 입력 중에는 상대방 입력에 throttle을 걸고, 지금 편집 중인 사용자를 화면에 표시해 충돌 자체를 줄였습니다.",
         ],
+        code: {
+          caption: "소프트 락 흐름 (도식)",
+          content: "A가 입력 시작\n  └─ emit(\"lock\", { userId: A })        ── 서버 ──▶  B: 편집 중 표시 \"A 입력 중\"\n                                                     B의 입력은 throttle로 지연\nA 입력 중 (debounce로 묶어서 전송)\n  └─ emit(\"code\", { from: A, value })   ── 서버 ──▶  B: 받은 코드로 교체 (재전송 안 함)\nA 입력 멈춤 + 200ms 경과\n  └─ emit(\"unlock\")                     ── 서버 ──▶  B: 다시 편집 가능",
+        },
       },
       {
         title: "코드가 반복 전송되는 문제 해결",
@@ -50,6 +66,10 @@ export const FEATURED_PROJECTS: Project[] = [
           "상대방이 작성한 코드를 편집기에 반영할 때, 이를 새 입력으로 처리하면 서버로 다시 전송되어 무한 루프가 생겼습니다. 서버에서 받은 변경과 사용자가 직접 입력한 변경을 구분해 재전송 루프를 제거했습니다.",
           "편집 권한을 가진 사용자의 입력만 공유하고, 키를 누를 때마다 전송하지 않도록 debounce로 전송 빈도를 조절했습니다. 편집 잠금 상태를 입력 제한에 반영하고, 편집 중 발생한 리렌더링 버그도 수정했습니다.",
         ],
+        code: {
+          caption: "받은 변경과 직접 입력 구분 (축약 예시)",
+          content: "const isRemoteChange = useRef(false);\n\nsocket.on(\"code\", ({ from, value }) => {\n  if (from === myId) return;\n  isRemoteChange.current = true;      // 이번 변경은 서버에서 온 것\n  editor.setValue(value);\n  isRemoteChange.current = false;\n});\n\neditor.onDidChangeModelContent(() => {\n  if (isRemoteChange.current) return; // 받은 코드는 다시 보내지 않음\n  sendCode(editor.getValue());        // debounce 처리된 전송\n});",
+        },
       },
       {
         title: "서비스 연동과 통화",
@@ -77,6 +97,8 @@ export const FEATURED_PROJECTS: Project[] = [
       "건물 에너지 관리 시스템(BEMS) 관리자 웹을 개발했습니다. SSR과 prefetch로 초기 렌더링을 1.3초 줄이고, 평균 번들을 878KB에서 728KB로 줄였습니다.",
     imgUrl: "/savee.webp",
     thumbUrl: "/savee-thumb.webp",
+    posterUrl: "/savee-poster.webp",
+    thumbPosterUrl: "/savee-thumb-poster.webp",
     sections: [
       {
         title: "프로젝트 소개",
@@ -91,6 +113,11 @@ export const FEATURED_PROJECTS: Project[] = [
           "기존에는 CSR 구조라 첫 화면 그래프가 클라이언트에서 데이터를 받은 뒤에야 그려졌고, LCP가 3.5초 이상이었습니다.",
           "첫 화면 그래프의 초기 데이터를 서버에서 React Query로 prefetch하고 hydration으로 넘기도록 바꿔, 초기 렌더링을 1.3초 줄였습니다.",
         ],
+        code: {
+          caption: "서버 prefetch → 클라이언트 hydration (축약 예시, Next.js 14 App Router · React Query v5)",
+          content: "// page.tsx (Server Component)\nexport default async function DashboardPage({ params }) {\n  const queryClient = new QueryClient();\n  await queryClient.prefetchQuery({\n    queryKey: [\"dashboard\", \"chart\", params.buildingId],\n    queryFn: () => getDashboardChart(params.buildingId),\n  });\n  return (\n    <HydrationBoundary state={dehydrate(queryClient)}>\n      <DashboardChart />  {/* 같은 queryKey로 캐시를 바로 사용 */}\n    </HydrationBoundary>\n  );\n}",
+        },
+        note: "측정 방법: 같은 대시보드 페이지를 개선 전후 Lighthouse로 비교했습니다.",
       },
       {
         title: "평균 번들 878KB → 728KB",
@@ -99,6 +126,11 @@ export const FEATURED_PROJECTS: Project[] = [
           "Highcharts는 dynamic import로 분리하고, 쓰지 않던 Highstock은 제거했습니다. jsPDF·html2canvas는 리포트를 만드는 시점에만 불러오도록 바꿨습니다.",
           "그 결과 76개 라우트의 평균 First Load JS가 878KB에서 728KB로, 가장 큰 라우트는 1.2MB에서 1.04MB로 줄었습니다.",
         ],
+        code: {
+          caption: "next build 결과 요약",
+          content: "                       개선 전        개선 후\n평균 First Load JS      878KB    →    728KB   (76개 라우트)\n최대 First Load JS      1.2MB    →    1.04MB\n\n// 차트는 필요한 화면에서만 로드\nconst EnergyChart = dynamic(() => import(\"./Chart/EnergyChart\"), { ssr: false });\n\n// PDF 생성 라이브러리는 다운로드 시점에 로드\nconst { default: jsPDF } = await import(\"jspdf\");",
+        },
+        note: "측정 방법: next build 출력의 라우트별 First Load JS를 개선 전후로 비교해 평균을 냈습니다.",
       },
       {
         title: "React Query 도입과 중복 요청 제거",
@@ -107,6 +139,10 @@ export const FEATURED_PROJECTS: Project[] = [
           "상위 조회가 성공한 뒤에만 하위 조회가 실행되도록 enabled로 연결해 그래프 요청을 1회로 줄였고, 요청 상태에 따라 그래프·로딩·오류 화면을 구분해 표시했습니다.",
           "테이블이 다시 렌더링될 때 컬럼과 행 확장 설정을 매번 생성하던 부분은 메모이제이션하고, 표시용 데이터 가공 코드를 렌더링 로직에서 분리했습니다.",
         ],
+        code: {
+          caption: "상위 조회 성공 후에만 하위 조회 실행 (실제 코드 기반 축약, 그래프 부분은 예시)",
+          content: "// 설비 용도 목록\nconst { data: purposes, isSuccess: purposesSuccess } = useQueryEquipmentPurpose({ buildingId });\n\n// 선택된 용도가 준비된 뒤에만 설비 목록 조회\nconst { data: equipments, isSuccess: equipmentsSuccess } = useQueryEquipmentOrSensorAPI({\n  buildingId,\n  purposeId: selectedPurpose || 0,\n  enabled: !!selectedPurpose && purposesSuccess,\n});\n\n// 설비 → 관제점이 준비된 뒤 그래프는 한 번만 요청\nconst chart = useQueryChartAPI({\n  pointIds,\n  range,\n  enabled: equipmentsSuccess && pointIds.length > 0,\n});",
+        },
       },
       {
         title: "리포트 다운로드와 진행 상태",
@@ -114,6 +150,11 @@ export const FEATURED_PROJECTS: Project[] = [
           "리포트 다운로드는 필요한 API가 모두 끝날 때까지 4초 이상 기다려야 했습니다. 리포트에 들어갈 데이터를 다운로드 전에 prefetchQuery로 미리 요청해 대기 시간을 3초 이내로 줄였습니다.",
           "리포트 생성 진행 상태는 폴링 대신 WebSocket으로 진행률을 받아 표시하고, 생성 중에도 취소할 수 있도록 했습니다.",
         ],
+        code: {
+          caption: "다운로드 전 데이터 미리 요청 (축약 예시)",
+          content: "// 리포트 화면 진입 시 리포트에 들어갈 데이터를 미리 받아 둔다\nuseEffect(() => {\n  reportSections.forEach((section) =>\n    queryClient.prefetchQuery({\n      queryKey: [\"report\", section, filter],\n      queryFn: () => getReportSection(section, filter),\n    }),\n  );\n}, [filter]);\n\n// 다운로드 버튼: 캐시에 있으면 즉시 사용\nconst data = await queryClient.ensureQueryData({ queryKey: [\"report\", section, filter], queryFn });",
+        },
+        note: "측정 방법: 다운로드 버튼 클릭부터 파일 저장까지의 대기 시간을 개선 전후로 비교했습니다.",
       },
       {
         title: "가상관제점 정의식 편집기와 접근성",
@@ -121,6 +162,11 @@ export const FEATURED_PROJECTS: Project[] = [
           "가상관제점 정의식 편집기를 전담했습니다. 정의식을 {관제점, 연산자} 배열로 규격화하고, Zod와 React Hook Form으로 항목 단위 검증을 적용했습니다. 긴 설비 등록 폼은 한 화면 안에서 단계별로 입력하도록 제안해 입력 부담을 줄였습니다.",
           "버튼·아이콘의 터치 영역과 색 대비를 개선해 Lighthouse 접근성 점수를 70점에서 90점으로 올렸습니다.",
         ],
+        code: {
+          caption: "정의식 규격 (축약 예시)",
+          content: "// \"A + B × 0.5\" 같은 정의식을 항목 배열로 규격화\nconst termSchema = z.object({\n  pointId: z.number({ required_error: \"관제점을 선택하세요\" }),\n  operator: z.enum([\"+\", \"-\", \"*\", \"/\"]).optional(), // 마지막 항목은 연산자 없음\n});\nconst formulaSchema = z.object({ terms: z.array(termSchema).min(1) });\n\n// React Hook Form useFieldArray로 항목 단위 추가·삭제·검증\nconst { fields, append, remove } = useFieldArray({ control, name: \"terms\" });",
+        },
+        note: "측정 방법: 접근성 점수는 같은 화면을 Lighthouse 접근성 항목으로 개선 전후 비교했습니다.",
       },
       {
         title: "결과 및 경험",
@@ -141,6 +187,8 @@ export const FEATURED_PROJECTS: Project[] = [
       "강의 플랫폼과 커뮤니티, 운영자 백오피스를 개발했습니다. 소셜 로그인과 결제, 해외 접속자 타임존 오류와 Apollo 캐시 갱신 문제를 다루고, Jenkins·Docker로 배포를 자동화했습니다.",
     imgUrl: "/lecture.webp",
     thumbUrl: "/lecture-thumb.webp",
+    posterUrl: "/lecture-poster.webp",
+    thumbPosterUrl: "/lecture-thumb-poster.webp",
     sections: [
       {
         title: "프로젝트 소개",
@@ -155,6 +203,10 @@ export const FEATURED_PROJECTS: Project[] = [
           "소셜 로그인과 토큰 재발급 흐름, 아임포트 결제(웹·모바일), 커뮤니티 기능을 개발했습니다.",
           "해외 접속자에게 시간이 잘못 표시되던 타임존 오류와, Apollo 캐시 때문에 데이터가 갱신되지 않던 문제를 해결했습니다.",
         ],
+        code: {
+          caption: "토큰 재발급 흐름 (도식)",
+          content: "요청 ──▶ 401 UNAUTHENTICATED\n          └─ refreshToken으로 accessToken 재발급 요청\n               ├─ 성공: 새 토큰 저장 → 실패했던 요청 재시도\n               └─ 실패: 로그아웃 처리 → 로그인 화면",
+        },
       },
       {
         title: "수강생 화면 개발",
@@ -189,6 +241,8 @@ export const FEATURED_PROJECTS: Project[] = [
       "백엔드 인력 없이 프론트엔드 2명이 회사 홈페이지와 어드민 CMS를 API까지 개발했습니다. Nx 모노레포 도입을 주도하고, Tiptap 에디터와 S3 파일 라이프사이클을 설계했습니다.",
     imgUrl: "/editor.webp",
     thumbUrl: "/editor-thumb.webp",
+    posterUrl: "/editor-poster.webp",
+    thumbPosterUrl: "/editor-thumb-poster.webp",
     sections: [
       {
         title: "프로젝트 소개",
@@ -209,6 +263,10 @@ export const FEATURED_PROJECTS: Project[] = [
           "표·임베드·이미지 리사이즈·캡션을 커스텀 노드와 NodeView로 구현하고, 작성자가 이미지에 링크와 속성을 지정할 수 있도록 했습니다.",
           "입력할 때마다 이미지 NodeView가 다시 그려지던 문제는 shouldUpdate로 해결했습니다. 글 작성에는 자동 임시 저장과 토스트 알림을 제안해 구현했습니다.",
         ],
+        code: {
+          caption: "NodeView 재사용 조건 (실제 코드 축약, 마지막 사용부는 예시)",
+          content: "// 관심 있는 attr이 바뀔 때만 NodeView를 다시 그린다\nexport const shouldUpdate =\n  (keys: string[] = []) =>\n  ({ oldNode, newNode }) => {\n    if (!oldNode.sameMarkup(newNode)) return true;            // 타입·마크업 변화\n    if (oldNode.content !== newNode.content) return true;      // 내용 변화\n    for (const k of keys) if (oldNode.attrs[k] !== newNode.attrs[k]) return true;\n    return false; // selection·decoration만 바뀐 경우는 재사용\n  };\n\n// 이미지 노드: src·width·caption·link가 바뀔 때만 다시 그림\nImageNodeView({ update: shouldUpdate([\"src\", \"width\", \"caption\", \"href\"]) });",
+        },
       },
       {
         title: "파일 라이프사이클 설계",
@@ -216,6 +274,10 @@ export const FEATURED_PROJECTS: Project[] = [
           "게시글을 복제하면 이미지 하나를 여러 글이 참조할 수 있어, 게시글과 이미지를 중간 테이블로 연결했습니다. 글을 저장하면 연결을 만들고, 이미지를 삭제하면 연결을 끊습니다.",
           "매월 정기 배치로 어떤 게시글과도 연결이 남지 않은 파일만 S3에서 정리해, 다른 글에서 쓰는 파일이 지워지지 않도록 했습니다.",
         ],
+        code: {
+          caption: "게시글–이미지 관계와 정리 배치 (도식)",
+          content: "posts ──< post_uploads >── uploads (S3 key)\n            (postId, uploadId)  UNIQUE\n\n글 저장       → post_uploads 연결 생성\n이미지 삭제   → post_uploads 연결 제거\n게시글 복제   → 같은 uploadId로 연결만 추가 (파일 복사 없음)\n\n매월 1일 05:00 배치\n  └─ post_uploads 연결이 0개인 uploads만 조회\n       └─ S3 객체 삭제 → uploads 레코드 삭제",
+        },
       },
       {
         title: "일괄 복제, 방문 분석, SEO",
@@ -224,6 +286,11 @@ export const FEATURED_PROJECTS: Project[] = [
           "방문 분석을 tracker → 수집·집계 API → Recharts 대시보드까지 직접 구축했습니다.",
           "솔루션 페이지를 generateStaticParams로 정적 생성하고 메타데이터와 sitemap을 적용해 Lighthouse SEO 100점을 받았습니다.",
         ],
+        code: {
+          caption: "원본 일괄 조회 후 Map 사용 (축약 예시)",
+          content: "// 개선 전: 복제할 게시글마다 원본 조회 (N회)\nfor (const id of ids) {\n  const origin = await postRepo.findOne({ where: { id } });\n  ...\n}\n\n// 개선 후: 한 번에 조회해 Map으로 찾기 (1회)\nconst origins = await postRepo.find({ where: { id: In(ids) }, relations: [\"postUploads\"] });\nconst originById = new Map(origins.map((post) => [post.id, post]));\nfor (const id of ids) {\n  const origin = originById.get(id)!;\n  ...\n}",
+        },
+        note: "측정 방법: SEO 점수는 정적 생성한 솔루션 페이지를 Lighthouse SEO 항목으로 측정했습니다.",
       },
       {
         title: "결과 및 경험",
@@ -262,6 +329,10 @@ export const FEATURED_PROJECTS: Project[] = [
         paragraphs: [
           "화면마다 필요한 필드가 달랐지만 REST 응답은 고정되어 있었습니다. GraphQL로 전환해 화면별로 필요한 필드만 요청하도록 바꾸고, Codegen으로 타입을 자동 생성했습니다.",
         ],
+        code: {
+          caption: "화면에 필요한 필드만 요청 (축약 예시)",
+          content: "# 목록 화면: 카드에 필요한 필드만\nquery BuildingList {\n  buildings { id name totalEmission }\n}\n\n# 상세 화면: 상세에 필요한 필드만\nquery BuildingDetail($id: ID!) {\n  building(id: $id) { id name address emissions { year scope1 scope2 } }\n}\n\n# Codegen으로 위 쿼리의 결과 타입을 자동 생성해 컴포넌트에서 사용",
+        },
       },
       {
         title: "다국어와 해외 버전, 테스트",

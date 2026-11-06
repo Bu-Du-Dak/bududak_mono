@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
-import { cookies } from "next/headers";
 
 import StyledComponentsRegistry from "../components/StyledComponentsRegistry";
 import CustomThemeProvider from "@repo/ui/layout/CustomThemeProvider";
+import ThemeInitScript from "@repo/ui/themes/themeInitScript";
 
 export const metadata: Metadata = {
   title: "BuDuDak's Dev Notes",
@@ -91,18 +91,19 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const cookie = await cookies();
-  const mode = (cookie.get("theme")?.value as "light" | "dark") ?? "dark";
   return (
-    <html lang="ko">
+    <html lang="ko" data-theme="dark" suppressHydrationWarning>
+      <head>
+        <ThemeInitScript />
+      </head>
       <body>
         <StyledComponentsRegistry>
-          <CustomThemeProvider initialMode={mode}>
+          <CustomThemeProvider>
             {children}
           </CustomThemeProvider>
         </StyledComponentsRegistry>
