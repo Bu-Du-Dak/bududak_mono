@@ -9,6 +9,7 @@ export type Item = {
   tags: string[];
   imgUrl: string;
   thumbUrl?: string;
+  thumbPosterUrl?: string;
 };
 type ListSectionProps = {
   title: string;
@@ -25,8 +26,8 @@ export default function ListSection({
       <Heading level={2}>{title}</Heading>
       {description && <Info>{description}</Info>}
       <ListWrapper>
-        {items.map((item) => (
-          <ListItem key={item.id} item={item} />
+        {items.map((item, index) => (
+          <ListItem key={item.id} item={item} priority={index < 2} />
         ))}
       </ListWrapper>
     </Container>
