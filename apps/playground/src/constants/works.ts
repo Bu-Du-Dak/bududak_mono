@@ -1,5 +1,6 @@
 import type { ComponentType } from "react";
 import ComingSoon from "../components/works/ComingSoon";
+import DinnerRoulette from "../components/works/dinner-roulette/DinnerRoulette";
 
 export type Work = {
   id: string;
@@ -16,8 +17,8 @@ export const WORKS: Work[] = [
     emoji: "🍽️",
     title: "fffff",
     description: "aaasdasd",
-    tags: ["Canvas", "Animation"],
-    Component: ComingSoon,
+    tags: ["SVG", "Animation"],
+    Component: DinnerRoulette,
   },
   {
     id: "football-pinball",
