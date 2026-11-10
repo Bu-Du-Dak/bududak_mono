@@ -2,7 +2,7 @@
 import styled from "styled-components";
 import { ALGORITHMS, type AlgorithmId, type Guarantee } from "./lib/search";
 import type { Status } from "./usePlayback";
-import { Button, Muted, Row } from "./styles";
+import { Button, Muted, Row } from "../common/styles";
 
 type Props = {
   algorithm: AlgorithmId;
