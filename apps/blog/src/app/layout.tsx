@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 
-
 import StyledComponentsRegistry from "../components/StyledComponentsRegistry";
 import CustomThemeProvider from "@repo/ui/layout/CustomThemeProvider";
 import ThemeInitScript from "@repo/ui/themes/themeInitScript";
@@ -50,9 +49,7 @@ export const metadata: Metadata = {
     images: ["/favicons/favicon-128x128.png"],
   },
   alternates: {
-    languages: {
-      "ko-KR": "/ko",
-    },
+    canonical: "/",
   },
   icons: {
     icon: [
@@ -103,9 +100,7 @@ export default function RootLayout({
       </head>
       <body>
         <StyledComponentsRegistry>
-          <CustomThemeProvider>
-            {children}
-          </CustomThemeProvider>
+          <CustomThemeProvider>{children}</CustomThemeProvider>
         </StyledComponentsRegistry>
       </body>
     </html>
