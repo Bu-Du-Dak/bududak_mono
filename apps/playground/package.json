@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint --max-warnings 0",
-    "check-types": "tsc --noEmit"
+    "check-types": "tsc --noEmit",
+    "test": "jest"
   },
   "dependencies": {
     "@repo/ui": "workspace:*",
@@ -19,10 +20,13 @@
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@types/jest": "^30.0.0",
     "@types/node": "^22.15.3",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
     "eslint": "^9.34.0",
+    "jest": "^30.2.0",
+    "ts-jest": "^29.4.6",
     "typescript": "5.9.2"
   }
 }
