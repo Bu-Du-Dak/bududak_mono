@@ -4,7 +4,7 @@ import { ALGORITHMS, type AlgorithmId } from "./lib/search";
 import { WEIGHT_COST } from "./lib/grid";
 import type { Tool } from "./GridCanvas";
 import { paletteOf } from "./colors";
-import { Button, Muted, Panel, Row } from "./styles";
+import { Button, Muted, Panel, Row } from "../common/styles";
 
 export type Metrics = {
   reached: boolean;
